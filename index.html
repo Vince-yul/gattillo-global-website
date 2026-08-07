@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gattillo Global — Concepts</title>
+<meta name="description" content="Website concepts for Gattillo Global. Pick a direction.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230E0C0A'/><text x='50' y='73' font-family='Arial Black' font-size='62' font-weight='900' text-anchor='middle' fill='%23E8492F'>G</text></svg>">
+<style>
+  @font-face { font-family: 'Satoshi'; src: url('concepts/premiere-red/fonts/satoshi-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url('concepts/premiere-red/fonts/satoshi-900.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('concepts/premiere-red/fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('concepts/premiere-red/fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  :root {
+    --stage: #0E0C0A;
+    --panel: #14110E;
+    --hairline: rgba(237,230,216,0.12);
+    --bone: #EDE6D8;
+    --bone-dim: rgba(237,230,216,0.6);
+    --bone-meta: rgba(237,230,216,0.55);
+    --red: #E8492F;
+    --display: 'Satoshi', 'Helvetica Neue', sans-serif;
+    --body: 'General Sans', 'Helvetica Neue', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--body); background: var(--stage); color: var(--bone);
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+
+  header { padding: clamp(64px, 9vw, 110px) 0 clamp(48px, 6vw, 72px); border-bottom: 1px solid var(--hairline); }
+  .kicker {
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 600; color: var(--red); display: flex; align-items: center; gap: 14px;
+  }
+  .kicker::before { content: ''; width: 28px; height: 1px; background: var(--red); }
+  h1 {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(38px, 5.6vw, 68px); letter-spacing: -0.025em; line-height: 1.04;
+    margin-top: 24px; max-width: 16ch; text-wrap: balance;
+  }
+  h1 .dot { color: var(--red); }
+  .lede {
+    font-size: clamp(16px, 1.3vw, 18px); line-height: 1.65; color: var(--bone-dim);
+    max-width: 56ch; margin-top: 24px;
+  }
+
+  main { padding: clamp(56px, 7vw, 96px) 0 clamp(90px, 10vw, 140px); }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(28px, 3vw, 40px);
+  }
+  .card {
+    display: block; border: 1px solid var(--hairline); background: var(--panel);
+    transition: border-color 0.3s;
+  }
+  .card:hover { border-color: rgba(237,230,216,0.28); }
+  .card .thumb {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+    border-bottom: 1px solid var(--hairline); background: var(--stage);
+  }
+  .card .thumb img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    transition: transform 0.5s cubic-bezier(0.19,1,0.22,1);
+  }
+  .card:hover .thumb img { transform: scale(1.035); }
+  .card .num {
+    position: absolute; top: 16px; left: 16px;
+    font-family: var(--display); font-weight: 700; font-size: 12px;
+    letter-spacing: 0.12em; color: var(--bone);
+    background: rgba(14,12,10,0.7); backdrop-filter: blur(6px);
+    padding: 6px 12px; border-radius: 100px; border: 1px solid var(--hairline);
+  }
+  .card .body { padding: clamp(24px, 2.6vw, 32px); }
+  .card .meta {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+  }
+  .card h2 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(21px, 2vw, 25px); letter-spacing: -0.015em; margin-bottom: 10px;
+  }
+  .card p { font-size: 15px; line-height: 1.6; color: var(--bone-dim); }
+  .card .go {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--bone);
+    margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--hairline); width: 100%;
+  }
+  .card .go svg { width: 14px; height: 14px; transition: transform 0.25s; }
+  .card:hover .go svg { transform: translate(3px,-3px); }
+
+  .placeholder .thumb {
+    display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(135deg, var(--stage), var(--stage) 10px, #17140F 10px, #17140F 20px);
+  }
+  .placeholder .thumb span {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 600; color: var(--bone-meta);
+  }
+  .placeholder { opacity: 0.6; pointer-events: none; }
+
+  footer {
+    border-top: 1px solid var(--hairline); padding: 32px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  footer .wordmark { font-family: var(--display); font-weight: 900; font-size: 14px; letter-spacing: 0.06em; }
+  footer .wordmark b { color: var(--red); }
+  footer .copy { font-size: 12px; letter-spacing: 0.1em; color: var(--bone-meta); }
+
+  @media (max-width: 640px) {
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Gattillo Global</div>
+    <h1>Pick a direction<span class="dot">.</span></h1>
+    <p class="lede">A few concepts, built to compare side by side. Open each one, click around, and tell us which direction to run with. Nothing here is final until you say so.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <a class="card" href="concepts/premiere-red/index.html">
+        <div class="thumb">
+          <span class="num">Concept 1</span>
+          <img src="assets/thumb-premiere-red.jpg" alt="Preview of the Premiere Red concept homepage" width="1440" height="900" loading="eager">
+        </div>
+        <div class="body">
+          <div class="meta">Dark · Editorial · Marquee red</div>
+          <h2>Premiere Red</h2>
+          <p>House lights down, marquee on. A dark stage with one accent color, built around trust and partnership rather than product cards.</p>
+          <span class="go">View this concept
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="card" href="concepts/call-sheet/index.html">
+        <div class="thumb">
+          <span class="num">Concept 2</span>
+          <img src="assets/thumb-call-sheet.jpg" alt="Preview of the Call Sheet concept homepage" width="1440" height="900" loading="eager">
+        </div>
+        <div class="body">
+          <div class="meta">Light · Editorial · Brass on paper</div>
+          <h2>Call Sheet</h2>
+          <p>The trade press, not the theatre. Warm paper, near-black ink, one brass accent, and two new sections for anyone who wants more before they email.</p>
+          <span class="go">View this concept
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="card placeholder">
+        <div class="thumb"><span>Coming soon</span></div>
+        <div class="body">
+          <div class="meta">Concept 3</div>
+          <h2>Next direction</h2>
+          <p>A third concept will land here for comparison.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; width:100%;">
+    <div class="wordmark">GATTILLO GROUP<b>.</b></div>
+    <div class="copy">CONCEPT REVIEW · NOT FOR PUBLIC DISTRIBUTION</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Innovation Opportunity — Gattillo Global</title>
+<meta name="description" content="A pitch for Chinese arcade manufacturers: from commodity to innovation.">
+<style>
+  @font-face { font-family: 'Satoshi'; src: url('concepts/premiere-red/fonts/satoshi-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url('concepts/premiere-red/fonts/satoshi-900.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('concepts/premiere-red/fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('concepts/premiere-red/fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+
+  :root {
+    /* Backspace Slides color system */
+    --ink: #16130f;
+    --ink-soft: #6b655c;
+    --paper: #faf8f5;
+    --line: #e5e0d8;
+    --accent: #34425a;
+
+    /* Gattillo custom overrides */
+    --stage: #0E0C0A;
+    --panel: #14110E;
+    --hairline: rgba(237,230,216,0.12);
+    --bone: #EDE6D8;
+    --bone-dim: rgba(237,230,216,0.6);
+    --bone-meta: rgba(237,230,216,0.55);
+    --gold: #D4A644;
+    --display: 'Satoshi', sans-serif;
+    --body: 'General Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body {
+    font-family: var(--body);
+    background: var(--stage);
+    color: var(--bone);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(237,230,216,0.08);
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide.light { background: var(--paper); color: var(--ink); }
+  .slide.light .accent { color: var(--gold); }
+  .slide.light .dim { color: var(--ink-soft); }
+
+  .slide.dark { background: var(--stage); color: var(--bone); }
+  .slide.dark .accent { color: var(--gold); }
+  .slide.dark .dim { color: var(--bone-dim); }
+
+  /* Title */
+  .slide.title {
+    justify-content: space-between;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(48px, 7vw, 120px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    max-width: 90%;
+    margin: -80px auto 0 auto;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    max-width: 90%;
+    margin: 0 auto 40px;
+  }
+
+  .subtitle {
+    font-family: var(--body);
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 75ch;
+    margin: 0 auto;
+    letter-spacing: 0;
+  }
+
+  .meta {
+    font-size: 21px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .two-col h2 {
+    text-align: left;
+    margin: 0 0 40px 0;
+  }
+
+  .two-col p {
+    text-align: left;
+    font-size: clamp(18px, 1.8vw, 25px);
+    line-height: 1.7;
+    margin: 20px 0;
+  }
+
+  .visual-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 140px;
+    font-weight: 900;
+    opacity: 0.2;
+    text-align: center;
+  }
+
+  /* Three-column */
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .col {
+    text-align: center;
+  }
+
+  .col h3 {
+    font-family: var(--display);
+    font-size: clamp(26px, 3vw, 45px);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .col p {
+    font-size: 21.6px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+  }
+
+  .icon {
+    font-size: 120px;
+    margin-bottom: 20px;
+    opacity: 0.4;
+  }
+
+  /* Comparison table */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: left;
+  }
+
+  .comp-side {
+    border-left: 2px solid var(--gold);
+    padding-left: 40px;
+  }
+
+  .comp-side.dim {
+    border-left-color: var(--bone-dim);
+    opacity: 0.7;
+  }
+
+  .comp-side h3 {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .comp-side ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .comp-side li {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .comp-side li:before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Action */
+  .cta-box {
+    background: rgba(212, 166, 68, 0.08);
+    border: 1px solid rgba(212, 166, 68, 0.16);
+    border-radius: 12px;
+    padding: 60px;
+    max-width: 700px;
+    margin: 0 auto;
+    backdrop-filter: blur(4px);
+  }
+
+  .cta-box h3 {
+    font-family: var(--display);
+    font-size: 39px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .cta-box p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    z-index: 100;
+  }
+
+  button {
+    background: rgba(212, 166, 68, 0.12);
+    border: 1px solid rgba(212, 166, 68, 0.24);
+    color: #D4A644;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background: rgba(212, 166, 68, 0.2);
+    border-color: rgba(212, 166, 68, 0.4);
+    transform: translateY(-1px);
+  }
+
+  button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .slide-counter {
+    color: #D4A644;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .two-col, .three-col, .comparison {
+      grid-template-columns: 1fr;
+    }
+    .slide { padding: 60px; }
+    h1 { font-size: clamp(36px, 5vw, 80px); }
+    h2 { font-size: clamp(32px, 5vw, 64px); }
+    .subtitle { font-size: clamp(16px, 2vw, 22px); }
+  }
+
+  /* Glow effect */
+  .glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(212, 166, 68, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+  }
+
+  .glow-tl { top: -200px; left: -200px; }
+  .glow-br { bottom: -200px; right: -200px; }
+
+  .accent-text {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1. TITLE -->
+  <div class="slide active title dark">
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+      <h1>The Innovation<br><span class="accent-text" style="color: #E60000;">Opportunity</span></h1>
+    </div>
+    <div style="text-align: center;">
+      <p class="subtitle" style="color: var(--bone-dim);">A conversation with Chinese arcade manufacturers about leading the industry, not following it.</p>
+      <p class="meta" style="margin-top: 40px;">GATTILLO GLOBAL</p>
+    </div>
+  </div>
+
+  <!-- 2. PROBLEM: THE REALITY TODAY -->
+  <div class="slide dark">
+    <div class="glow glow-tl"></div>
+    <h2 style="font-size: clamp(32px, 4.5vw, 70px);">This exists in China today</h2>
+    <p class="subtitle" style="color: var(--bone-dim); margin-bottom: 60px;">The budget segment is alive and thriving. Commoditized products, racing to the bottom on price.</p>
+    <div class="comparison">
+      <div class="comp-side">
+        <h3>Budget Arcade</h3>
+        <ul>
+          <li>Generic machines</li>
+          <li>Low-cost design</li>
+          <li>Indistinguishable products</li>
+          <li>Race to the bottom on price</li>
+        </ul>
+      </div>
+      <div class="comp-side">
+        <h3>Budget Cars</h3>
+        <ul>
+          <li>$3,000–$7,000 vehicles</li>
+          <li>Basic mobility, nothing more</li>
+          <li>Same commoditized playbook</li>
+          <li>Manufacturers stuck competing on cost</li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow glow-br"></div>
+  </div>
+
+  <!-- 3. THE OPPORTUNITY -->
+  <div class="slide dark" style="justify-content: flex-start; padding-top: 80px;">
+    <h2 style="font-size: clamp(32px, 4.5vw, 70px);">But Today in China, car companies are also building premium products at scale.</h2>
+    <div class="three-col" style="margin-top: 60px; margin-bottom: 120px;">
+      <div class="col">
+        <div style="height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 100px;">
+          <img src="assets/byd-logo.png" alt="BYD" style="max-height: 96px; max-width: 100%; object-fit: contain;">
+        </div>
+        <p class="dim" style="font-size: 28px;">Built for premium. Superior design, technology, and scale. Competing globally against Tesla.</p>
+      </div>
+      <div class="col">
+        <div style="height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 100px;">
+          <img src="assets/nio-logo.png" alt="NIO" style="max-height: 80px; max-width: 100%; object-fit: contain;">
+        </div>
+        <p class="dim" style="font-size: 28px;">Luxury EV brand. Premium experience. Proving Chinese innovation can lead, not follow.</p>
+      </div>
+      <div class="col" style="display: flex; flex-direction: column; justify-content: flex-start;">
+        <div style="height: 100px; display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 100px;">
+          <img src="assets/geely-logo.svg" alt="Geely" style="max-height: 60px; max-width: 45%; object-fit: contain;">
+          <img src="assets/xiaomi-logo.png" alt="Xiaomi" style="max-height: 60px; max-width: 45%; object-fit: contain;">
+        </div>
+        <p class="dim" style="font-size: 28px;">Smart, tech-focused EV makers. Premium quality, software-first, competitive pricing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. THE EV ANALOGY -->
+  <div class="slide light" style="justify-content: flex-start; padding-top: 60px;">
+    <h2 style="color: #1A1815; margin-bottom: 20px; width: 100%; font-size: clamp(32px, 4.5vw, 70px);">The EV Revolution Is Our Blueprint</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; max-width: 1400px;">
+
+      <!-- Left: Budget Segment -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div style="margin-bottom: 40px; border-radius: 8px; overflow: hidden; width: 100%; background: #E8E8E8; aspect-ratio: 8/4.5; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/budget.png" alt="Budget segment vehicle" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
+        </div>
+        <h3 style="font-family: var(--display); font-weight: 700; font-size: 33.6px; color: #1A1815; margin-bottom: 16px;">Budget Segment</h3>
+        <p style="color: #1A1815; line-height: 1.8; font-size: 19.2px;">Generic. Commodity. Undifferentiated.<br><strong style="color: #1A1815;">This is arcade games today.</strong></p>
+      </div>
+
+      <!-- Right: Innovation -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 0;">
+        <div style="margin-bottom: 40px; border-radius: 8px; overflow: hidden; width: 100%; aspect-ratio: 8/4.5; background: #E8E8E8; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/nio.png" alt="NIO premium EV" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
+        </div>
+        <h3 style="font-family: var(--display); font-weight: 700; font-size: 33.6px; color: var(--accent); margin-bottom: 16px; margin-top: 0;">Innovation Segment</h3>
+        <p style="color: #1A1815; line-height: 1.8; font-size: 19.2px; margin-top: 0;">Better design. Better performance. Lower cost.<br><strong style="color: var(--accent);">This is where we go together.</strong></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. WHAT GATTILLO BRINGS -->
+  <div class="slide dark">
+    <h2 style="margin-bottom: 80px;">What Gattillo Global Offers</h2>
+    <ul style="list-style: none; padding: 0; text-align: left; max-width: 800px; margin: 0 auto;">
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Novel game concepts (not rehashed classics)</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Player psychology & engagement design</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Access to international IPs</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Operator profitability frameworks</li>
+      <li style="font-size: 24px; line-height: 1.8; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Market positioning & brand architecture</li>
+    </ul>
+  </div>
+
+  <!-- 6. YOUR CONTRIBUTION -->
+  <div class="slide dark">
+    <h2 style="margin-bottom: 80px;">Your Contribution</h2>
+    <ul style="list-style: none; padding: 0; text-align: left; max-width: 800px; margin: 0 auto;">
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Manufacturing excellence at scale</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Cost efficiency</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Supply chain agility & rapid iteration</li>
+      <li style="font-size: 24px; line-height: 1.8; margin-bottom: 30px; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Regional market knowledge & operator relationships</li>
+      <li style="font-size: 24px; line-height: 1.8; padding-left: 40px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">—</span> Proven ability to deliver at volume</li>
+    </ul>
+  </div>
+
+  <!-- 7. THE PARTNERSHIP -->
+  <div class="slide dark">
+    <h2 style="margin-bottom: 45px; font-size: clamp(33.6px, 4.8vw, 76.8px);">This Is A Partnership</h2>
+    <div class="three-col">
+      <div class="col">
+        <div style="font-size: 80px; font-weight: 900; color: #E60000; margin-bottom: 20px;">1</div>
+        <h3>Co-Design</h3>
+        <p class="dim">You're not a vendor. We develop together. Your manufacturing insight shapes the final product.</p>
+      </div>
+      <div class="col">
+        <div style="font-size: 80px; font-weight: 900; color: #E60000; margin-bottom: 20px;">2</div>
+        <h3>Shared Risk</h3>
+        <p class="dim">We invest in concept validation and business development, gaining market insights before full production.</p>
+        <p class="dim" style="margin-top: 16px;">You invest in tooling and capacity.<br>Aligned incentives.</p>
+      </div>
+      <div class="col">
+        <div style="font-size: 80px; font-weight: 900; color: #E60000; margin-bottom: 20px;">3</div>
+        <h3>Market Ownership</h3>
+        <p class="dim">We capture global and premium markets.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. THE VISION -->
+  <div class="slide light">
+    <h2 style="color: #1A1815; margin-bottom: 60px;">Very soon</h2>
+    <div style="max-width: 1400px; margin: 0 auto; font-size: 21px; line-height: 1.6; color: #1A1815; text-align: center;">
+      <p style="margin: 0 0 30px 0;">
+        <strong style="color: var(--accent);">Arcade games designed in North America and built in China.</strong> Not a cheap version of a Western design, but a better version at a lower cost.
+      </p>
+      <p style="margin: 0 0 30px 0;">
+        <strong style="color: var(--accent);">We have shifted the entire market.</strong> Competing on design and novelty, not racing to the bottom on price.
+      </p>
+      <p style="margin: 0 0 30px 0;">
+        <strong style="color: var(--accent);">That's the BYD moment for arcade games.</strong> It starts with this conversation.
+      </p>
+    </div>
+  </div>
+
+  <!-- 9. THE ASK -->
+  <div class="slide dark">
+    <h2 style="margin-bottom: 60px; font-size: clamp(32px, 4.5vw, 70px);">Are you interested in being the Chinese innovator in arcade games?</h2>
+    <p style="color: var(--bone-dim); margin-bottom: 30px; font-size: 36px; line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto;">Not just the low-cost manufacturer. Part of a brand that changes what's possible.</p>
+    <p style="color: var(--bone); font-size: 32px; max-width: 900px; margin-left: auto; margin-right: auto;">If yes, let's explore the first co-designed game together.</p>
+  </div>
+
+  <!-- 10. CONTACT -->
+  <div class="slide title light" style="background: white; justify-content: space-between;">
+    <h1 style="color: #E60000; font-size: clamp(38.4px, 5.6vw, 96px); margin-top: 60px; margin-bottom: 0;">Thank you</h1>
+    <img src="assets/gattillo-white-logo.png" alt="Gattillo Global" style="max-height: 400px; object-fit: contain; margin-bottom: 120px;">
+  </div>
+
+</div>
+
+<div class="nav">
+  <button id="prev" onclick="prevSlide()">&larr; Back</button>
+  <span class="slide-counter"><span id="current">1</span> / <span id="total">10</span></span>
+  <button id="next" onclick="nextSlide()">Next &rarr;</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  document.getElementById('total').textContent = totalSlides;
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (n + totalSlides) % totalSlides;
+    slides[currentSlide].classList.add('active');
+    document.getElementById('current').textContent = currentSlide + 1;
+
+    document.getElementById('prev').disabled = currentSlide === 0;
+    document.getElementById('next').disabled = currentSlide === totalSlides - 1;
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) showSlide(currentSlide - 1);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // Initialize
+  showSlide(0);
+</script>
+
+</body>
+</html>

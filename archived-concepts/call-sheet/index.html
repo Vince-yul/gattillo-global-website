@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gattillo Global | Entertainment Opportunity Development</title>
+<meta name="description" content="Gattillo Global develops and structures entertainment and amusement opportunities around recognizable intellectual property, talent, and proven market demand.">
+<meta property="og:title" content="Gattillo Global | Entertainment Opportunity Development">
+<meta property="og:description" content="From recognized intellectual property to commercially viable entertainment experiences.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F4EEE2'/><text x='50' y='73' font-family='Georgia' font-size='62' font-weight='700' text-anchor='middle' fill='%23A9752E'>G</text></svg>">
+<style>
+  @font-face { font-family: 'Libre Baskerville'; src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+
+  :root {
+    --paper: #F4EEE2;
+    --paper-deep: #ECE2CC;
+    --panel: #EFE7D6;
+    --ink: #1B1712;
+    --ink-soft: #3A322A;
+    --ink-faint: rgba(27,23,18,.6);
+    --ink-muted: rgba(27,23,18,.45);
+    --brass: #9C6B24;
+    --brass-deep: #7C5019;
+    --brass-ink: #7C5019;
+    --rule: rgba(27,23,18,.16);
+    --rule-soft: rgba(27,23,18,.1);
+    --display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    --body: 'General Sans', 'Helvetica Neue', Arial, sans-serif;
+    --max: 1220px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.menu-open { overflow: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; letter-spacing: 0; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--brass); color: var(--paper); }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+
+  .skip {
+    position: fixed; top: 12px; left: 12px; z-index: 3000;
+    padding: 10px 16px; background: var(--ink); color: var(--paper);
+    font-size: 13px; font-weight: 600; transform: translateY(-180%);
+    transition: transform .2s ease;
+  }
+  .skip:focus-visible { transform: translateY(0); }
+  .wrap { width: min(calc(100% - 96px), var(--max)); margin-inline: auto; }
+  .kicker {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--brass-ink); font-family: var(--body); font-size: 11px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  .kicker::before { content: ''; width: 24px; height: 1px; background: currentColor; }
+  .section-title { margin-top: 22px; font-size: 54px; font-weight: 400; line-height: 1.08; }
+  .section-intro { max-width: 680px; margin-top: 26px; color: var(--ink-faint); font-size: 17px; line-height: 1.72; }
+  .dot { color: var(--brass); }
+  .rule { border: none; border-top: 1px solid var(--rule); }
+
+  /* Masthead */
+  #nav {
+    position: fixed; inset: 0 0 auto; z-index: 1000;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    transition: box-shadow .25s ease;
+  }
+  #nav.scrolled { box-shadow: 0 8px 24px rgba(27,23,18,.06); }
+  .nav-top {
+    height: 78px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 max(48px, calc((100vw - var(--max)) / 2));
+  }
+  .wordmark { position: relative; z-index: 1002; font-family: var(--display); font-size: 21px; letter-spacing: .01em; }
+  .wordmark b { color: var(--brass); font-weight: 400; }
+  #nav .links { display: flex; align-items: center; gap: 28px; }
+  #nav .links a:not(.nav-cta) { color: var(--ink-faint); font-size: 12.5px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; transition: color .2s ease; }
+  #nav .links a:hover, #nav .links a.active { color: var(--ink); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 100px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase;
+    transition: background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+  .nav-strip {
+    height: 38px; display: flex; align-items: center; overflow: hidden;
+    background: var(--ink); color: var(--paper);
+  }
+  .nav-strip-track {
+    min-width: max-content; display: flex; align-items: center; gap: 22px; padding: 0 28px;
+    font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(244,238,226,.72);
+  }
+  .nav-strip-track i { width: 3px; height: 3px; background: var(--brass); border-radius: 50%; }
+  #burger {
+    position: relative; z-index: 1002; width: 40px; height: 40px;
+    display: none; border: 0; background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .burger-line, .burger-line::before {
+    position: absolute; left: 9px; width: 22px; height: 1.5px; display: block; background: currentColor;
+    transition: transform .2s ease;
+  }
+  .burger-line { top: 21px; }
+  .burger-line::before { content: ''; left: 0; top: -7px; }
+  body.menu-open .burger-line { transform: translateY(-3.5px) rotate(45deg); }
+  body.menu-open .burger-line::before { transform: translateY(7px) rotate(-90deg); }
+  #mobile-menu {
+    position: fixed; inset: 0; z-index: 999; display: flex; flex-direction: column; justify-content: center;
+    padding: 92px 28px 32px; background: var(--paper);
+    opacity: 0; visibility: hidden; transform: translateY(-16px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+  }
+  body.menu-open #mobile-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  #mobile-menu a { padding: 15px 0; border-bottom: 1px solid var(--rule); font-family: var(--display); font-size: 32px; }
+  #mobile-menu .mobile-foot { margin-top: auto; color: var(--ink-muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+
+  /* Hero */
+  #hero { padding: 208px 0 84px; background: var(--paper); }
+  .hero-inner { max-width: 980px; }
+  .hero-title { margin-top: 24px; font-size: clamp(44px, 7vw, 104px); font-weight: 400; line-height: 1.04; }
+  .hero-title > span { display: block; }
+  .hero-title .nowrap { white-space: nowrap; }
+  .hero-lede { max-width: 620px; margin-top: 30px; color: var(--ink-faint); font-size: 18px; line-height: 1.7; }
+  .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 38px; }
+  .button-primary, .button-secondary {
+    min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 13px 26px; border-radius: 100px;
+    font-size: 13px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; line-height: 1.1;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .button-primary { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+  .button-primary:hover { background: var(--brass-deep); border-color: var(--brass-deep); transform: translateY(-2px); }
+  .button-secondary { color: var(--ink); font-weight: 600; font-size: 14px; letter-spacing: 0; text-transform: none; padding: 0; border-radius: 0; border-bottom: 1px solid var(--ink); }
+  .button-secondary:hover { color: var(--brass-deep); border-color: var(--brass-deep); }
+  .button-primary svg, .button-secondary svg { width: 14px; height: 14px; }
+
+  .hero-meta {
+    margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .hero-meta span { display: block; color: var(--ink-muted); font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .hero-meta b { display: block; margin-top: 8px; font-family: var(--display); font-size: 15px; font-weight: 400; color: var(--ink); }
+
+  /* Section base */
+  section { padding: 108px 0; }
+  section + section { border-top: 1px solid var(--rule); }
+  #focus, #capabilities, #perspective { background: var(--panel); }
+
+  /* Experience (byline) */
+  .experience-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 96px; align-items: start; }
+  .experience-lead { position: sticky; top: 118px; }
+  .experience-copy p { margin-bottom: 22px; color: var(--ink-soft); font-size: 17px; line-height: 1.8; }
+  .experience-copy p:first-child { font-family: var(--display); color: var(--ink); font-size: 24px; line-height: 1.5; }
+  .ledger { grid-column: 1 / -1; margin-top: 8px; border-top: 1px solid var(--ink); }
+  .ledger-row { display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+  .ledger-row .num { font-family: var(--display); color: var(--brass-ink); font-size: 14px; }
+  .ledger-row strong { font-family: var(--display); font-weight: 400; font-size: 24px; line-height: 1.2; }
+  .ledger-row span:last-child { color: var(--ink-muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+  /* Focus areas */
+  .focus-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+  .focus-head .section-intro { margin: 0; }
+  .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--rule); }
+  .focus-card { padding: 34px 30px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .focus-card .num { font-family: var(--display); color: var(--brass-ink); font-size: 13px; }
+  .focus-card h3 { margin-top: 16px; font-size: 22px; font-weight: 400; line-height: 1.2; }
+  .focus-card p { margin-top: 12px; color: var(--ink-faint); font-size: 14.5px; line-height: 1.62; }
+
+  /* Capabilities */
+  .capability-intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; margin-bottom: 70px; }
+  .capability-intro .section-intro { margin: 0; }
+  .capability-overview { max-width: 780px; margin-top: 28px; color: var(--ink-soft); font-size: 17px; line-height: 1.76; }
+  .capability-overview + .capability-overview { margin-top: 16px; }
+  .capability-list { border-top: 1px solid var(--ink); }
+  .capability-item {
+    display: grid; grid-template-columns: 64px minmax(240px, .75fr) minmax(0, 1.35fr);
+    gap: 40px; padding: 40px 0; border-bottom: 1px solid var(--rule); align-items: start;
+  }
+  .capability-number { font-family: var(--display); color: var(--brass-ink); font-size: 14px; }
+  .capability-item h3 { font-size: 27px; font-weight: 400; line-height: 1.15; }
+  .capability-body p { max-width: 660px; margin-bottom: 14px; color: var(--ink-faint); font-size: 15.5px; line-height: 1.74; }
+  .capability-body p:last-child { margin-bottom: 0; }
+
+  /* Process */
+  .process-layout { display: grid; grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr); gap: 96px; align-items: start; }
+  .process-heading { position: sticky; top: 118px; }
+  .process-heading .section-title { font-size: 48px; }
+  .process-heading p { margin-top: 26px; color: var(--ink-faint); font-size: 16.5px; line-height: 1.72; }
+  .process-list { border-top: 1px solid var(--ink); }
+  .process-step { display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 36px 0; border-bottom: 1px solid var(--rule); }
+  .step-number { font-family: var(--display); color: var(--brass-ink); font-size: 15px; }
+  .process-step h3 { margin-bottom: 14px; font-size: 24px; font-weight: 400; line-height: 1.2; }
+  .process-step p { margin-bottom: 12px; color: var(--ink-faint); font-size: 15.5px; line-height: 1.72; }
+  .process-step p:last-child { margin-bottom: 0; }
+
+  /* Perspective */
+  .perspective-header { display: grid; grid-template-columns: 1fr .9fr; gap: 90px; align-items: end; margin-bottom: 62px; }
+  .perspective-header .section-title { font-size: 50px; }
+  .perspective-header p { color: var(--ink-soft); font-size: 16.5px; line-height: 1.76; }
+  .stakeholder-list { border-top: 1px solid var(--ink); }
+  .stakeholder-row { display: grid; grid-template-columns: 52px minmax(190px, .65fr) 1fr; gap: 26px; padding: 24px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .stakeholder-row .num { font-family: var(--display); color: var(--brass-ink); font-size: 13px; }
+  .stakeholder-row h3 { font-size: 20px; font-weight: 400; }
+  .stakeholder-row p { color: var(--ink-faint); font-size: 15.5px; }
+  .perspective-close { max-width: 760px; margin: 58px 0 0 auto; font-family: var(--display); font-size: 25px; font-weight: 400; line-height: 1.4; }
+
+  /* Engagement FAQ */
+  .faq-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; margin-bottom: 58px; }
+  .faq-head .section-intro { margin: 0; }
+  .faq-list { border-top: 1px solid var(--ink); }
+  .faq-item { border-bottom: 1px solid var(--rule); }
+  .faq-q {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: 28px 0; background: none; border: 0; text-align: left; cursor: pointer; color: var(--ink);
+  }
+  .faq-q h3 { font-size: 21px; font-weight: 400; }
+  .faq-q .plus { position: relative; flex: none; width: 18px; height: 18px; }
+  .faq-q .plus::before, .faq-q .plus::after { content: ''; position: absolute; background: var(--ink); transition: transform .25s ease; }
+  .faq-q .plus::before { top: 8px; left: 0; width: 18px; height: 1.5px; }
+  .faq-q .plus::after { left: 8px; top: 0; width: 1.5px; height: 18px; }
+  .faq-item.open .plus::after { transform: rotate(90deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-item.open .faq-a { max-height: 240px; }
+  .faq-a p { max-width: 700px; padding-bottom: 28px; color: var(--ink-faint); font-size: 15.5px; line-height: 1.74; }
+
+  /* Execution */
+  #execution { position: relative; background: var(--ink); color: var(--paper); overflow: hidden; }
+  .execution-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; opacity: .34; filter: grayscale(1) sepia(.55) saturate(1.4) brightness(.62); mix-blend-mode: luminosity; }
+  #execution::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(27,23,18,.92), rgba(27,23,18,.68)); }
+  .execution-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
+  .execution-inner .kicker { color: var(--brass); }
+  .execution-inner .section-title { font-size: 50px; color: var(--paper); }
+  .execution-copy { padding-left: 28px; border-left: 2px solid var(--brass); }
+  .execution-copy p { margin-bottom: 20px; color: rgba(244,238,226,.76); font-size: 16.5px; line-height: 1.76; }
+  .execution-copy p:first-child { color: var(--paper); font-size: 19px; }
+
+  /* Contact and footer */
+  #contact { padding: 100px 0 0; background: var(--paper); }
+  #contact .kicker { color: var(--brass-ink); }
+  .contact-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: end; padding-bottom: 90px; border-bottom: 1px solid var(--rule); }
+  .contact-title { max-width: 780px; margin-top: 22px; font-size: 58px; font-weight: 400; line-height: 1.08; }
+  .contact-copy { max-width: 560px; margin-top: 24px; font-size: 16.5px; line-height: 1.68; color: var(--ink-faint); }
+  footer { padding: 28px 0; display: grid; grid-template-columns: 1fr auto auto; gap: 32px; align-items: center; }
+  .footer-links { display: flex; gap: 22px; font-size: 12px; color: var(--ink-faint); }
+  .footer-links a:hover { color: var(--ink); text-decoration: underline; }
+  .copyright { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+
+  /* Motion */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-delay { transition-delay: .1s; }
+  body.loaded .hero-inner { animation: hero-in .8s ease both; }
+  @keyframes hero-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 1100px) {
+    .wrap { width: min(calc(100% - 64px), var(--max)); }
+    .nav-top { padding-inline: 32px; }
+    .section-title { font-size: 44px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
+    .experience-grid, .process-layout, .execution-inner { gap: 56px; }
+    .focus-head, .capability-intro, .perspective-header, .faq-head { gap: 48px; }
+    .focus-grid { grid-template-columns: repeat(2, 1fr); }
+    .capability-item { grid-template-columns: 48px minmax(200px, .7fr) 1.3fr; gap: 26px; }
+  }
+
+  @media (max-width: 860px) {
+    #nav .links { display: none; }
+    #burger { display: block; }
+    .experience-grid, .capability-intro, .process-layout, .perspective-header, .execution-inner, .contact-inner, .focus-head, .faq-head { grid-template-columns: 1fr; }
+    .experience-lead, .process-heading { position: static; }
+    .ledger { grid-column: auto; }
+    .focus-grid { grid-template-columns: 1fr 1fr; }
+    .capability-item { grid-template-columns: 40px 1fr; }
+    .capability-body { grid-column: 2; }
+    .execution-inner { gap: 40px; }
+    .contact-inner { align-items: start; }
+    footer { grid-template-columns: 1fr; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { width: min(calc(100% - 32px), var(--max)); }
+    .nav-top { height: 66px; padding-inline: 16px; }
+    #hero { padding: 156px 0 60px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .hero-meta { grid-template-columns: 1fr 1fr; }
+    section { padding: 72px 0; }
+    .section-title, .process-heading .section-title, .perspective-header .section-title, .execution-inner .section-title { font-size: 34px; }
+    .experience-copy p:first-child { font-size: 20px; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .capability-item { grid-template-columns: 1fr; gap: 10px; padding: 30px 0; }
+    .capability-body { grid-column: auto; }
+    .capability-item h3 { font-size: 23px; }
+    .process-step { grid-template-columns: 30px 1fr; gap: 10px; padding: 28px 0; }
+    .stakeholder-row { grid-template-columns: 30px 1fr; gap: 10px; }
+    .stakeholder-row p { grid-column: 2; }
+    .perspective-close { margin-top: 40px; font-size: 21px; }
+    .faq-q h3 { font-size: 18px; }
+    .execution-inner { padding-block: 0; }
+    .contact-title { font-size: 38px; }
+    .contact-inner { padding-bottom: 60px; }
+    footer { padding: 24px 0; }
+  }
+
+  html.no-js .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="nav">
+  <div class="nav-top wrap" style="width:100%; padding-inline: max(48px, calc((100vw - var(--max)) / 2));">
+    <a href="#hero" class="wordmark" data-scroll>Gattillo Global<b>.</b></a>
+    <nav class="links" aria-label="Primary">
+      <a href="#experience" data-scroll>Experience</a>
+      <a href="#focus" data-scroll>Focus</a>
+      <a href="#capabilities" data-scroll>What We Do</a>
+      <a href="#process" data-scroll>Process</a>
+      <a href="contact.html" class="nav-cta">Start a conversation</a>
+    </nav>
+    <button id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="burger-line" aria-hidden="true"></span></button>
+  </div>
+  <div class="nav-strip" aria-hidden="true">
+    <div class="nav-strip-track">
+      <span>Intellectual Property</span><i></i><span>Talent</span><i></i><span>Professional Sports</span><i></i><span>Attractions</span><i></i><span>Manufacturing</span><i></i><span>Distribution</span><i></i><span>International Business</span>
+    </div>
+  </div>
+</header>
+
+<nav id="mobile-menu" aria-label="Mobile navigation">
+  <a href="#experience" data-scroll>Experience</a>
+  <a href="#focus" data-scroll>Focus</a>
+  <a href="#capabilities" data-scroll>What We Do</a>
+  <a href="#process" data-scroll>Process</a>
+  <a href="#perspective" data-scroll>Perspective</a>
+  <a href="contact.html">Start a conversation</a>
+  <div class="mobile-foot">Entertainment · Amusement · Partnerships</div>
+</nav>
+
+<main id="main">
+  <section id="hero">
+    <div class="wrap hero-inner">
+      <p class="kicker">Gattillo Global / Opportunity Development</p>
+      <h1 class="hero-title"><span>From recognized IP</span><span>to operating <span class="nowrap">experience<span class="dot">.</span></span></span></h1>
+      <p class="hero-lede">We develop and structure entertainment and amusement opportunities built around recognizable intellectual property, talent, and proven market demand.</p>
+      <div class="hero-actions">
+        <a href="#capabilities" class="button-primary" data-scroll>Explore what we do
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+        </a>
+        <a href="contact.html" class="button-secondary">Start a conversation</a>
+      </div>
+      <div class="hero-meta reveal">
+        <span>Opportunity<b>01 — Find it</b></span>
+        <span>Rights<b>02 — Secure it</b></span>
+        <span>Structure<b>03 — Deal it</b></span>
+        <span>Market<b>04 — Run it</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap experience-grid">
+      <div class="experience-lead">
+        <p class="kicker reveal">Experience</p>
+        <h2 class="section-title reveal reveal-delay">Built by people who have done the work<span class="dot">.</span></h2>
+      </div>
+      <div class="experience-copy reveal">
+        <p>Gattillo Global was founded by entertainment industry veterans who have spent their careers working across major studios, globally recognized franchises, professional sports, talent partnerships, attractions, manufacturing, distribution, and international business development.</p>
+        <p>That experience gives us a practical understanding of how an idea moves from an early conversation to a licensed, manufactured, and commercially viable entertainment experience.</p>
+        <p>The relationships behind Gattillo were not assembled for a single project. They were built over decades of delivering, negotiating, launching, and creating value across the entertainment industry.</p>
+        <p>Gattillo Global brings those worlds together.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row reveal"><span class="num">I</span><strong>We know the rights holders.</strong><span>Access</span></div>
+        <div class="ledger-row reveal"><span class="num">II</span><strong>We know the operators.</strong><span>Market</span></div>
+        <div class="ledger-row reveal"><span class="num">III</span><strong>We know who can build it.</strong><span>Delivery</span></div>
+        <div class="ledger-row reveal"><span class="num">IV</span><strong>We know who can distribute it.</strong><span>Reach</span></div>
+        <div class="ledger-row reveal"><span class="num">V</span><strong>We know who can finance it.</strong><span>Capital</span></div>
+        <div class="ledger-row reveal"><span class="num">VI</span><strong>We know how to put it in front of an audience.</strong><span>Audience</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <div class="wrap">
+      <div class="focus-head">
+        <div>
+          <p class="kicker reveal">Focus Areas</p>
+          <h2 class="section-title reveal reveal-delay">Where the model applies<span class="dot">.</span></h2>
+        </div>
+        <p class="section-intro reveal">Gattillo is not built around one category. It is built around a repeatable way of working, applied wherever recognizable IP, talent, or a proven audience meets an operator or manufacturer ready to build for them.</p>
+      </div>
+      <div class="focus-grid reveal">
+        <div class="focus-card">
+          <span class="num">01</span>
+          <h3>Theme parks &amp; attractions</h3>
+          <p>New rides, lands, and IP-driven attractions for major and regional parks, from concept through operator approval.</p>
+        </div>
+        <div class="focus-card">
+          <span class="num">02</span>
+          <h3>Location-based entertainment</h3>
+          <p>Family entertainment centers, arcades, and experiential venues built around recognizable brands rather than generic play.</p>
+        </div>
+        <div class="focus-card">
+          <span class="num">03</span>
+          <h3>Licensed consumer products</h3>
+          <p>Taking a rights holder's IP into new physical and amusement categories with the right manufacturing partner behind it.</p>
+        </div>
+        <div class="focus-card">
+          <span class="num">04</span>
+          <h3>Professional sports &amp; talent</h3>
+          <p>Structuring partnerships between athletes, leagues, agencies, and operators looking to build something beyond endorsement.</p>
+        </div>
+        <div class="focus-card">
+          <span class="num">05</span>
+          <h3>Manufacturing &amp; distribution</h3>
+          <p>Connecting proven manufacturing capability with the distribution and operator relationships needed to reach the floor.</p>
+        </div>
+        <div class="focus-card">
+          <span class="num">06</span>
+          <h3>International expansion</h3>
+          <p>Bringing a proven concept, franchise, or product into a new territory with the right regional partner in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="capability-intro">
+        <div>
+          <p class="kicker reveal">What We Actually Do</p>
+          <h2 class="section-title reveal reveal-delay">Strong properties. Clear opportunities. Commercial outcomes.</h2>
+        </div>
+        <p class="section-intro reveal">Gattillo Global develops and structures entertainment and amusement opportunities built around recognizable intellectual property, talent, and proven market demand.</p>
+      </div>
+      <p class="capability-overview reveal">We work between the organizations that own the audience and the organizations capable of building the experience.</p>
+      <p class="capability-overview reveal">That can mean helping a rights holder bring its intellectual property into a new category, helping an operator develop an attraction audiences will immediately recognize, or assembling the commercial, manufacturing, distribution, and financing partners needed to move a project forward. Our role changes with the opportunity, but the objective remains the same: turn strong entertainment properties into experiences that audiences want and businesses can successfully operate.</p>
+
+      <div class="capability-list">
+        <article class="capability-item reveal">
+          <span class="capability-number">I</span>
+          <h3>Opportunity development</h3>
+          <div class="capability-body">
+            <p>We identify where recognized intellectual property, talent, or entertainment brands can create new commercial value.</p>
+            <p>This begins with the market, not with a product looking for somewhere to go. We study operator needs, audience behaviour, category performance, available rights, and the competitive landscape before recommending a direction.</p>
+          </div>
+        </article>
+        <article class="capability-item reveal">
+          <span class="capability-number">II</span>
+          <h3>IP, talent and partnership development</h3>
+          <div class="capability-body">
+            <p>We connect the right rights holders, athletes, talent, operators, manufacturers, distributors, and commercial partners around a clearly defined opportunity.</p>
+            <p>We help establish the partnership structure, responsibilities, approvals, commercial terms, and long-term objectives required to keep every party aligned.</p>
+          </div>
+        </article>
+        <article class="capability-item reveal">
+          <span class="capability-number">III</span>
+          <h3>Commercial strategy and deal structure</h3>
+          <div class="capability-body">
+            <p>A compelling concept is not enough. The economics must work.</p>
+            <p>Gattillo helps shape the business model behind each opportunity, including licensing, ownership, revenue participation, manufacturing costs, distribution, financing, and routes to market.</p>
+            <p>Our goal is to build partnerships that create lasting enterprise value, not one-time transactions.</p>
+          </div>
+        </article>
+        <article class="capability-item reveal">
+          <span class="capability-number">IV</span>
+          <h3>Development and execution</h3>
+          <div class="capability-body">
+            <p>Once the opportunity and economics are validated, we help coordinate the specialists responsible for bringing it to market.</p>
+            <p>That may include concept development, product design, licensing approvals, engineering, manufacturing, distribution, operator placement, launch planning, and international expansion.</p>
+            <p>Gattillo does not replace these specialists. We bring them together, establish the commercial framework, and keep the project moving toward the same outcome.</p>
+          </div>
+        </article>
+        <article class="capability-item reveal">
+          <span class="capability-number">V</span>
+          <h3>Growth and expansion</h3>
+          <div class="capability-body">
+            <p>The work does not stop when an experience reaches the floor.</p>
+            <p>We look at how successful concepts can expand into additional locations, territories, formats, products, and partnerships. Every project should have the potential to become more valuable over time.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap process-layout">
+      <div class="process-heading">
+        <p class="kicker reveal">Our Process</p>
+        <h2 class="section-title reveal reveal-delay">From opportunity to operating experience<span class="dot">.</span></h2>
+        <p class="reveal">Every project is different, but the discipline behind it remains consistent.</p>
+      </div>
+      <div class="process-list">
+        <article class="process-step reveal">
+          <span class="step-number">I</span>
+          <div><h3>Find the opportunity</h3><p>We begin by identifying a real opening in the market.</p><p>That may come from an operator looking for a recognizable attraction, a rights holder exploring a new category, a manufacturer with an exceptional capability, or a partner with access to an underserved territory.</p><p>We define the audience, the commercial opportunity, and the reason the project should exist.</p></div>
+        </article>
+        <article class="process-step reveal">
+          <span class="step-number">II</span>
+          <div><h3>Validate demand</h3><p>Before significant development begins, we speak with the people responsible for buying, placing, and operating the experience.</p><p>We determine what audiences are responding to, what operators need, what price points are realistic, how the experience will perform on the floor, and whether there is a credible path to scale.</p></div>
+        </article>
+        <article class="process-step reveal">
+          <span class="step-number">III</span>
+          <div><h3>Assemble the right partners</h3><p>Once the opportunity is clear, we bring together the organizations capable of delivering it.</p><p>Depending on the project, that can include studios, leagues, athletes, talent, operators, designers, manufacturers, distributors, investors, and regional partners.</p><p>Every participant is selected for a specific reason. No unnecessary layers. No introductions without a plan.</p></div>
+        </article>
+        <article class="process-step reveal">
+          <span class="step-number">IV</span>
+          <div><h3>Secure the rights and structure the deal</h3><p>We work with the appropriate parties to establish licensing, territory, approvals, ownership, revenue participation, manufacturing responsibilities, financing, and distribution.</p><p>Before development moves forward, every partner should understand the opportunity, the economics, and their role in delivering it.</p></div>
+        </article>
+        <article class="process-step reveal">
+          <span class="step-number">V</span>
+          <div><h3>Build and prepare for market</h3><p>With the rights and commercial model established, our development and manufacturing partners turn the opportunity into a finished experience.</p><p>Gattillo helps coordinate the process across concept development, design, approvals, production, pricing, logistics, and operator readiness.</p></div>
+        </article>
+        <article class="process-step reveal">
+          <span class="step-number">VI</span>
+          <div><h3>Launch, learn and scale</h3><p>We support the route to market, from initial placement through broader commercial expansion.</p><p>Performance is evaluated through audience response, operator economics, repeatability, and long-term growth potential. What works can then be expanded across locations, territories, formats, and future partnerships.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="perspective">
+    <div class="wrap">
+      <div class="perspective-header">
+        <div><p class="kicker reveal">Cross-Industry Perspective</p><h2 class="section-title reveal reveal-delay">Experience that travels across industries and borders.</h2></div>
+        <p class="reveal">The people behind Gattillo Global have worked across entertainment, professional sports, global franchises, licensing, attractions, manufacturing, distribution, and international business. That experience allows us to understand an opportunity from every side:</p>
+      </div>
+      <div class="stakeholder-list">
+        <article class="stakeholder-row reveal"><span class="num">I</span><h3>The rights holder</h3><p>Protecting a globally recognized name.</p></article>
+        <article class="stakeholder-row reveal"><span class="num">II</span><h3>The operator</h3><p>Responsible for making the floor perform.</p></article>
+        <article class="stakeholder-row reveal"><span class="num">III</span><h3>The manufacturer</h3><p>Responsible for delivering at scale.</p></article>
+        <article class="stakeholder-row reveal"><span class="num">IV</span><h3>The distributor</h3><p>Responsible for bringing it into the market.</p></article>
+        <article class="stakeholder-row reveal"><span class="num">V</span><h3>The capital partner</h3><p>Evaluating risk and return.</p></article>
+        <article class="stakeholder-row reveal"><span class="num">VI</span><h3>The audience</h3><p>Deciding whether the experience is worth their time.</p></article>
+      </div>
+      <p class="perspective-close reveal">Gattillo Global was created to align those interests and turn them into something commercially meaningful.</p>
+    </div>
+  </section>
+
+  <section id="engagement">
+    <div class="wrap">
+      <div class="faq-head">
+        <div>
+          <p class="kicker reveal">How We Work</p>
+          <h2 class="section-title reveal reveal-delay">Before you write the first email<span class="dot">.</span></h2>
+        </div>
+        <p class="section-intro reveal">Straight answers to the questions we're usually asked in the first conversation.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q" type="button" aria-expanded="true">
+            <h3>Is Gattillo an agency, a broker, or a consultancy?</h3>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>None of those on their own. We develop the opportunity, help structure the deal, and stay involved through commercialization. An introduction without a plan is not the product; a workable, financed path to market is.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <h3>What does Gattillo charge for?</h3>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>It depends on the role we play. Depending on the project, that can mean advisory fees, transaction-based compensation, or a revenue or equity participation, agreed upfront and specific to what we're structuring.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <h3>What stage do you get involved at?</h3>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>Anywhere from an early idea to a project already in development that needs the right partners or a better deal structure. Earlier is easier, but it's not a requirement.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <h3>What territories do you work in?</h3>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>Wherever the rights, the operator, or the audience are. Our network spans major markets and the regional partners needed to operate in them.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <h3>What do you need from us to start a conversation?</h3>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>No deck is required. A clear description of the opportunity, the property or capability involved, and your role in it is enough for a first conversation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="execution">
+    <img class="execution-media" src="assets/hero-entertainment-floor.jpg" width="1728" height="919" alt="Commercial amusement equipment prepared for an entertainment venue floor" loading="lazy">
+    <div class="wrap execution-inner">
+      <div><p class="kicker reveal">The Gattillo Difference</p><h2 class="section-title reveal reveal-delay">More than access. The ability to execute.</h2></div>
+      <div class="execution-copy reveal">
+        <p>Relationships can open a door. Experience determines what happens next.</p>
+        <p>Our value is not simply knowing influential people. It is understanding what each party needs, recognizing where a genuine opportunity exists, structuring an arrangement that works, and guiding it through the realities of development and commercialization.</p>
+        <p>We do not bring partners together for the appearance of momentum.</p>
+        <p>We bring them together when there is a credible path to building something valuable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div><p class="kicker reveal">Start a Conversation</p><h2 class="contact-title reveal reveal-delay">Bring the right opportunity to the right table.</h2><p class="contact-copy reveal">We work with rights holders, operators, manufacturers, distributors, investors, and regional partners who are ready to build commercially meaningful entertainment experiences.</p></div>
+        <a href="contact.html" class="button-primary reveal">Contact Gattillo Global
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+        </a>
+      </div>
+      <footer>
+        <a href="#hero" class="wordmark" data-scroll>Gattillo Global<b>.</b></a>
+        <nav class="footer-links" aria-label="Footer"><a href="#capabilities" data-scroll>What We Do</a><a href="#process" data-scroll>Process</a><a href="contact.html">Contact</a><a href="mailto:info@gattillogroup.com">info@gattillogroup.com</a></nav>
+        <div class="copyright">© 2026 Gattillo Global</div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  requestAnimationFrame(function () { document.body.classList.add('loaded'); });
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  var closeMenu = function () {
+    document.body.classList.remove('menu-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+  };
+
+  burger.addEventListener('click', function () {
+    var open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+
+  document.querySelectorAll('[data-scroll]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      var selector = link.getAttribute('href');
+      if (!selector || selector.charAt(0) !== '#') return;
+      var target = document.querySelector(selector);
+      if (!target) return;
+      event.preventDefault();
+      closeMenu();
+      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    });
+  });
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#nav .links a[href^="#"]'));
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    var current = '';
+    sections.forEach(function (section) {
+      if (window.scrollY >= section.offsetTop - 160) current = section.id;
+    });
+    navLinks.forEach(function (link) { link.classList.toggle('active', link.getAttribute('href') === '#' + current); });
+  }, { passive: true });
+
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (element) { observer.observe(element); });
+})();
+</script>
+</body>
+</html>

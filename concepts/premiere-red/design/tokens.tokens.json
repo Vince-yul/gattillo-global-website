@@ -1,0 +1,33 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "stage":      { "$type": "color", "$value": "#0B0A08", "$description": "Page background. The dark house." },
+    "stage-deep": { "$type": "color", "$value": "#070605", "$description": "Deepest wells (hero base, footer)." },
+    "panel":      { "$type": "color", "$value": "#12100C", "$description": "Elevated panel (Playbook act)." },
+    "hairline":   { "$type": "color", "$value": "rgba(237,230,216,0.13)", "$description": "All rules and separators." },
+    "bone":       { "$type": "color", "$value": "#EDE6D8", "$description": "Primary type." },
+    "bone-dim":   { "$type": "color", "$value": "rgba(237,230,216,0.60)", "$description": "Body copy." },
+    "bone-faint": { "$type": "color", "$value": "rgba(237,230,216,0.34)", "$description": "Meta, ghost numerals." },
+    "gold":       { "$type": "color", "$value": "#E7A53B", "$description": "Marquee amber. The only accent." },
+    "gold-hot":   { "$type": "color", "$value": "#FFC96B", "$description": "Bulb glow peaks only." }
+  },
+  "font": {
+    "display": { "$type": "fontFamily", "$value": ["Satoshi", "Helvetica Neue", "sans-serif"], "$description": "900/700 only. Tracking -0.03em at display sizes." },
+    "body":    { "$type": "fontFamily", "$value": ["General Sans", "Helvetica Neue", "sans-serif"], "$description": "400/500. 16.5-19px, 1.65 line height." }
+  },
+  "type-scale": {
+    "hero":      { "$type": "dimension", "$value": "clamp(58px, 10.4vw, 158px)" },
+    "h2":        { "$type": "dimension", "$value": "clamp(40px, 5.4vw, 74px)" },
+    "statement": { "$type": "dimension", "$value": "clamp(28px, 3.8vw, 52px)" },
+    "meta":      { "$type": "dimension", "$value": "12px", "$description": "0.22em tracking, uppercase, 600" }
+  },
+  "motion": {
+    "reveal": { "$type": "cubicBezier", "$value": [0.19, 1, 0.22, 1], "$description": "0.9s expo-out for all reveals." },
+    "snap":   { "$type": "cubicBezier", "$value": [0.76, 0, 0.24, 1], "$description": "0.35s for buttons and fills." },
+    "lenis-lerp": { "$type": "number", "$value": 0.09 }
+  },
+  "texture": {
+    "grain": { "$type": "string", "$value": "feTurbulence 0.9 / opacity 0.05 fixed layer" },
+    "glow":  { "$type": "string", "$value": "radial ellipse amber 0.14-0.2 alpha, bottom horizon of hero and vision only" }
+  }
+}

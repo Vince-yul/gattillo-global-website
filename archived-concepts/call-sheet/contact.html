@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Let's Talk | Gattillo Global</title>
+<meta name="description" content="Start a conversation with Gattillo Global about entertainment IP, talent, attraction, manufacturing, distribution, financing, and market opportunities.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F4EEE2'/><text x='50' y='73' font-family='Georgia' font-size='62' font-weight='700' text-anchor='middle' fill='%23A9752E'>G</text></svg>">
+<style>
+  @font-face { font-family: 'Libre Baskerville'; src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+  :root {
+    --paper: #F4EEE2;
+    --panel: #EFE7D6;
+    --ink: #1B1712;
+    --ink-soft: #3A322A;
+    --ink-faint: rgba(27,23,18,.6);
+    --ink-muted: rgba(27,23,18,.45);
+    --brass: #9C6B24;
+    --brass-deep: #7C5019;
+    --rule: rgba(27,23,18,.16);
+    --display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    --body: 'General Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--body); background: var(--paper); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--brass); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  .skip { position: fixed; top: 10px; left: 10px; z-index: 3000; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; padding: 10px 18px; border-radius: 100px; transform: translateY(-200%); transition: transform .2s; }
+  .skip:focus-visible { transform: translateY(0); }
+  .wrap { max-width: 1220px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+  .kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--brass-deep); display: flex; align-items: center; gap: 12px; }
+  .kicker::before { content: ''; width: 24px; height: 1px; background: var(--brass-deep); }
+
+  #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 24px clamp(24px, 5vw, 64px); transition: padding .3s; }
+  #nav.scrolled .nav-top { padding-top: 16px; padding-bottom: 16px; }
+  .wordmark { font-family: var(--display); font-size: 19px; position: relative; z-index: 1002; }
+  .wordmark b { color: var(--brass); font-weight: 400; }
+  #nav .links { display: flex; align-items: center; gap: 28px; }
+  #nav .links a:not(.cta) { font-size: 12.5px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-faint); transition: color .25s; }
+  #nav .links a:not(.cta):hover { color: var(--ink); }
+  .cta { display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; font-size: 12.5px; letter-spacing: .03em; text-transform: uppercase; padding: 11px 22px; border-radius: 100px; transition: background .2s, color .2s; }
+  .cta:hover { background: var(--ink); color: var(--paper); }
+  #burger { display: none; background: none; border: none; cursor: pointer; z-index: 1002; padding: 6px; color: var(--ink); }
+  #burger svg { width: 26px; height: 26px; display: block; }
+  #burger .ico-x { display: none; }
+  body.menu-open #burger .ico-list { display: none; }
+  body.menu-open #burger .ico-x { display: block; }
+  #mobileMenu { position: fixed; inset: 0; z-index: 1001; background: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: 0 32px; clip-path: circle(0 at calc(100% - 44px) 42px); transition: clip-path .65s cubic-bezier(.76,0,.24,1); visibility: hidden; }
+  body.menu-open #mobileMenu { clip-path: circle(150% at calc(100% - 44px) 42px); visibility: visible; }
+  #mobileMenu a { font-family: var(--display); color: var(--ink); font-size: clamp(30px, 8vw, 44px); padding: 14px 0; border-bottom: 1px solid var(--rule); opacity: 0; transform: translateY(20px); transition: opacity .4s, transform .4s; }
+  body.menu-open #mobileMenu a { opacity: 1; transform: translateY(0); }
+  body.menu-open #mobileMenu a:nth-child(1) { transition-delay: .18s; }
+  body.menu-open #mobileMenu a:nth-child(2) { transition-delay: .24s; }
+  body.menu-open #mobileMenu a:nth-child(3) { transition-delay: .3s; }
+  body.menu-open #mobileMenu a:nth-child(4) { transition-delay: .36s; }
+  body.menu-open #mobileMenu a:nth-child(5) { transition-delay: .42s; }
+
+  main { padding: clamp(140px, 17vw, 200px) 0 clamp(90px, 10vw, 130px); }
+  .split { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(48px, 6vw, 100px); align-items: start; }
+  .page-title { font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; margin-top: 24px; }
+  .page-title .dot { color: var(--brass); }
+  .lead { font-size: 17px; line-height: 1.68; color: var(--ink-faint); margin-top: 26px; max-width: 440px; }
+  .direct { margin-top: 46px; border-top: 1px solid var(--rule); padding-top: 28px; max-width: 440px; }
+  .direct .lbl { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); margin-bottom: 12px; }
+  .direct a { font-family: var(--display); font-size: clamp(18px, 1.8vw, 23px); color: var(--ink); transition: color .25s; }
+  .direct a:hover { color: var(--brass-deep); }
+  .direct p { font-size: 14.5px; line-height: 1.6; color: var(--ink-faint); margin-top: 12px; }
+
+  form { border: 1px solid var(--rule); background: var(--panel); }
+  .f-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); }
+  .f-cell { background: var(--panel); padding: clamp(20px, 2.2vw, 28px) clamp(20px, 2.4vw, 32px); }
+  .f-cell.full { grid-column: 1 / -1; }
+  .f-cell .lbl { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); margin-bottom: 12px; transition: color .25s; }
+  .f-cell:focus-within .lbl { color: var(--brass-deep); }
+  input[type="text"], input[type="email"], textarea { width: 100%; border: none; background: transparent; outline: none; font-family: var(--body); font-size: 16.5px; color: var(--ink); font-weight: 500; padding: 2px 0; }
+  textarea { resize: vertical; min-height: 128px; line-height: 1.6; }
+  input::placeholder, textarea::placeholder { color: var(--ink-muted); font-weight: 400; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .chips input { position: absolute; opacity: 0; pointer-events: none; }
+  .chips span { display: inline-block; font-size: 13.5px; font-weight: 500; color: var(--ink-faint); border: 1px solid var(--rule); padding: 9px 17px; cursor: pointer; border-radius: 100px; transition: background .25s, color .25s, border-color .25s; }
+  .chips label:hover span { border-color: var(--ink-faint); color: var(--ink); }
+  .chips input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+  .chips input:focus-visible + span { outline: 2px solid var(--brass); outline-offset: 2px; }
+  .f-actions { padding: clamp(20px, 2.2vw, 28px) clamp(20px, 2.4vw, 32px); border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .f-note { font-size: 13px; color: var(--ink-faint); max-width: 300px; line-height: 1.5; }
+  .btn-dark { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--ink); cursor: pointer; background: var(--ink); color: var(--paper); font-family: var(--body); font-weight: 600; font-size: 14.5px; padding: 15px 32px; border-radius: 100px; transition: background .25s, border-color .25s; }
+  .btn-dark:hover { background: var(--brass-deep); border-color: var(--brass-deep); }
+  .btn-dark svg { width: 14px; height: 14px; transition: transform .3s; }
+  .btn-dark:hover svg { transform: translate(2px,-2px); }
+  #formOk { display: none; padding: clamp(26px, 3vw, 40px); text-align: left; }
+  #formOk .big { font-family: var(--display); font-size: clamp(24px, 2.4vw, 32px); margin-bottom: 12px; }
+  #formOk p { color: var(--ink-faint); line-height: 1.6; max-width: 460px; }
+  form.sent .f-grid, form.sent .f-actions { display: none; }
+  form.sent #formOk { display: block; }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px clamp(24px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer .fnav { display: flex; gap: 26px; font-size: 13px; color: var(--ink-faint); }
+  footer .fnav a:hover { color: var(--ink); }
+  footer .copy { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+  footer .wordmark { font-size: 14px; }
+
+  .rv { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.19,1,.22,1), transform .8s cubic-bezier(.19,1,.22,1); }
+  .rv.in { opacity: 1; transform: translateY(0); }
+  .rv-d1 { transition-delay: .08s; } .rv-d2 { transition-delay: .16s; }
+  html.no-js .rv { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    #nav .links { display: none; }
+    #burger { display: block; }
+    .split { grid-template-columns: 1fr; }
+    .f-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    footer .fnav { justify-content: center; flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    .rv { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="nav">
+  <div class="nav-top">
+    <a href="index.html" class="wordmark">Gattillo Global<b>.</b></a>
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#focus">Focus</a>
+      <a href="index.html#capabilities">What We Do</a>
+      <a href="index.html#process">Process</a>
+      <a href="contact.html" class="cta">Start a conversation</a>
+    </nav>
+    <button id="burger" aria-label="Menu" aria-expanded="false">
+      <svg class="ico-list" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+      <svg class="ico-x" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+    </button>
+  </div>
+</header>
+<div id="mobileMenu">
+  <a href="index.html#experience">Experience</a>
+  <a href="index.html#focus">Focus</a>
+  <a href="index.html#capabilities">What We Do</a>
+  <a href="index.html#process">Process</a>
+  <a href="contact.html">Start a conversation</a>
+</div>
+
+<main id="main">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="kicker rv">Contact</div>
+        <h1 class="page-title rv rv-d1">Bring the right opportunity to the right table<span class="dot">.</span></h1>
+        <p class="lead rv rv-d2">Rights holders, operators, talent, manufacturers, distributors, investors, and regional partners: tell us where you see a credible path to building something valuable.</p>
+        <div class="direct rv rv-d2">
+          <div class="lbl">Prefer email</div>
+          <a href="mailto:info@gattillogroup.com">info@gattillogroup.com</a>
+          <p>Every message goes directly to the Gattillo team. Expect a reply within two business days.</p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="rv rv-d1" novalidate>
+        <div class="f-grid">
+          <div class="f-cell">
+            <label><span class="lbl">Name</span>
+              <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            </label>
+          </div>
+          <div class="f-cell">
+            <label><span class="lbl">Company</span>
+              <input type="text" name="company" placeholder="Company or venue" autocomplete="organization">
+            </label>
+          </div>
+          <div class="f-cell full">
+            <label><span class="lbl">Email</span>
+              <input type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </label>
+          </div>
+          <div class="f-cell full">
+            <span class="lbl" id="roleLbl">I'm reaching out as</span>
+            <div class="chips" role="group" aria-labelledby="roleLbl">
+              <label><input type="radio" name="role" value="Rights holder" checked><span>Rights holder</span></label>
+              <label><input type="radio" name="role" value="Operator"><span>Operator</span></label>
+              <label><input type="radio" name="role" value="Talent or agency"><span>Talent / agency</span></label>
+              <label><input type="radio" name="role" value="Manufacturer"><span>Manufacturer</span></label>
+              <label><input type="radio" name="role" value="Distributor"><span>Distributor</span></label>
+              <label><input type="radio" name="role" value="Capital partner"><span>Capital partner</span></label>
+              <label><input type="radio" name="role" value="Regional partner"><span>Regional partner</span></label>
+            </div>
+          </div>
+          <div class="f-cell full">
+            <label><span class="lbl">Tell us about the opportunity</span>
+              <textarea name="message" placeholder="The property, market opening, capability, territory, or partnership you want to discuss." required></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="f-actions">
+          <button type="submit" class="btn-dark">Send inquiry
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          </button>
+          <div class="f-note">No deck is required. A concise outline of the opportunity and your role is enough to begin.</div>
+        </div>
+        <div id="formOk">
+          <div class="big">Sent. We'll take it from here.</div>
+          <p>A partner will get back to you within two business days. If it's urgent, email info@gattillogroup.com directly.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="index.html" class="wordmark">Gattillo Global<b>.</b></a>
+  <nav class="fnav" aria-label="Footer">
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#capabilities">What We Do</a>
+    <a href="index.html#process">Process</a>
+    <a href="mailto:info@gattillogroup.com">info@gattillogroup.com</a>
+  </nav>
+  <div class="copy">© 2026 GATTILLO GROUP</div>
+</footer>
+
+<script>
+(function () {
+  var FORM_ENDPOINT = '';
+
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function () {
+    var open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var d = new FormData(form);
+    var name = d.get('name'), company = d.get('company'), email = d.get('email');
+    var role = d.get('role'), message = d.get('message');
+
+    if (FORM_ENDPOINT) {
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, company: company, email: email, role: role, message: message })
+      }).then(function (r) {
+        if (r.ok) { form.classList.add('sent'); }
+        else { fallbackMail(); }
+      }).catch(fallbackMail);
+    } else {
+      fallbackMail();
+    }
+
+    function fallbackMail() {
+      var subject = 'Gattillo Global inquiry from ' + name + (company ? ' (' + company + ')' : '');
+      var body = 'Name: ' + name + '\nCompany: ' + (company || '-') + '\nEmail: ' + email + '\nReaching out as: ' + role + '\n\n' + message;
+      window.location.href = 'mailto:info@gattillogroup.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      form.classList.add('sent');
+    }
+  });
+})();
+</script>
+</body>
+</html>
