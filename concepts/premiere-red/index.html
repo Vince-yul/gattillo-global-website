@@ -119,6 +119,17 @@
   }
   .cta:hover { color: var(--stage); border-color: var(--red); }
   .cta:hover::before { transform: translateY(0); }
+  .lang-toggle {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: none; border: 1px solid rgba(237,230,216,0.28); border-radius: 100px;
+    padding: 9px 16px; cursor: pointer; font-family: var(--body);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.03em; color: var(--bone-faint);
+    transition: border-color 0.3s;
+  }
+  .lang-toggle:hover { border-color: var(--red); }
+  .lang-toggle span[data-lang-opt] { color: var(--bone-faint); transition: color 0.3s; }
+  .lang-toggle span[data-lang-opt].active { color: var(--bone); }
+  .lang-toggle-mobile { margin-top: 24px; align-self: flex-start; font-size: 14px; padding: 10px 20px; }
   #burger {
     display: none; background: none; border: none; cursor: pointer;
     z-index: 1002; padding: 6px; color: var(--bone);
@@ -153,6 +164,7 @@
   body.menu-open #mobileMenu a:nth-child(3) { transition-delay: 0.3s; }
   body.menu-open #mobileMenu a:nth-child(4) { transition-delay: 0.36s; }
   body.menu-open #mobileMenu a:nth-child(5) { transition-delay: 0.42s; }
+  body.menu-open #mobileMenu a:nth-child(6) { transition-delay: 0.48s; }
   #mobileMenu .mm-foot {
     position: absolute; bottom: 36px; left: 32px; right: 32px;
     font-size: 12px; letter-spacing: 0.18em; color: var(--bone-faint);
@@ -351,6 +363,38 @@
   .v-statement .w.on { opacity: 1; }
   .v-statement .accent { color: var(--red); }
 
+  /* ---------- Who We Are: founder ---------- */
+  .founder { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(56px, 7.5vw, 140px); align-items: start; }
+  .founder-photo {
+    position: relative; border: 1px solid var(--hairline); border-radius: 4px; overflow: hidden;
+    aspect-ratio: 2 / 3;
+  }
+  .founder-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .founder-photo::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 55%;
+    background: linear-gradient(to top, rgba(14,12,10,0.55), transparent);
+    pointer-events: none;
+  }
+  .founder-name {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(28px, 3.1vw, 40px); letter-spacing: -0.015em; line-height: 1.1;
+  }
+  .founder-role {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--red); margin-top: 12px;
+  }
+  .founder-bio p {
+    font-size: clamp(16px, 1.25vw, 17px); line-height: 1.7; color: var(--bone-dim);
+    max-width: 560px; margin-top: 22px;
+  }
+  .founder-bio p:first-of-type { margin-top: 28px; }
+  @media (max-width: 1080px) {
+    .founder { grid-template-columns: 1fr; }
+    .founder-photo { max-width: 340px; }
+  }
+
   /* ---------- Contact ---------- */
   #contact { padding: clamp(110px, 13vw, 176px) 0 clamp(56px, 7vw, 90px); position: relative; background: var(--stage-deep); }
   .c-title {
@@ -452,11 +496,15 @@
 <header id="nav">
   <a href="#hero" class="wordmark" data-scroll>GATTILLO GLOBAL<b>.</b></a>
   <nav class="links" aria-label="Primary">
-    <a href="#partners" data-scroll>Partners</a>
-    <a href="#standard" data-scroll>The Standard</a>
-    <a href="#approach" data-scroll>How We Work</a>
-    <a href="#vision" data-scroll>Vision</a>
-    <a href="contact.html" class="cta">Let's Talk</a>
+    <a href="#partners" data-scroll data-i18n="nav.partners">Partners</a>
+    <a href="#standard" data-scroll data-i18n="nav.standard">The Standard</a>
+    <a href="#approach" data-scroll data-i18n="nav.approach">How We Work</a>
+    <a href="#vision" data-scroll data-i18n="nav.vision">Vision</a>
+    <a href="#about" data-scroll data-i18n="nav.about">Who We Are</a>
+    <button class="lang-toggle" type="button" aria-label="Switch language">
+      <span data-lang-opt="en">EN</span><span aria-hidden="true">/</span><span data-lang-opt="zh">中</span><span aria-hidden="true">/</span><span data-lang-opt="fr">FR</span>
+    </button>
+    <a href="contact.html" class="cta" data-i18n="nav.cta">Let's Talk</a>
   </nav>
   <button id="burger" aria-label="Menu" aria-expanded="false">
     <svg class="ico-list" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
@@ -464,12 +512,16 @@
   </button>
 </header>
 <div id="mobileMenu">
-  <a href="#partners" data-scroll>Partners</a>
-  <a href="#standard" data-scroll>The Standard</a>
-  <a href="#approach" data-scroll>How We Work</a>
-  <a href="#vision" data-scroll>Vision</a>
-  <a href="contact.html">Let's Talk</a>
-  <div class="mm-foot">Entertainment &amp; Amusement</div>
+  <a href="#partners" data-scroll data-i18n="nav.partners">Partners</a>
+  <a href="#standard" data-scroll data-i18n="nav.standard">The Standard</a>
+  <a href="#approach" data-scroll data-i18n="nav.approach">How We Work</a>
+  <a href="#vision" data-scroll data-i18n="nav.vision">Vision</a>
+  <a href="#about" data-scroll data-i18n="nav.about">Who We Are</a>
+  <a href="contact.html" data-i18n="nav.cta">Let's Talk</a>
+  <button class="lang-toggle lang-toggle-mobile" type="button" aria-label="Switch language">
+    <span data-lang-opt="en">EN</span><span aria-hidden="true">/</span><span data-lang-opt="zh">中</span><span aria-hidden="true">/</span><span data-lang-opt="fr">FR</span>
+  </button>
+  <div class="mm-foot" data-i18n="nav.mmfoot">Entertainment &amp; Amusement</div>
 </div>
 
 <main id="main">
@@ -478,17 +530,17 @@
   <div class="glow" aria-hidden="true"></div>
   <div class="h-mid">
     <div class="wrap" style="position: relative;">
-      <div class="kicker hero-kicker">Entertainment &amp; Amusement Partnerships</div>
-      <h1 class="h1">
+      <div class="kicker hero-kicker" data-i18n="hero.kicker">Entertainment &amp; Amusement Partnerships</div>
+      <h1 class="h1" data-i18n="hero.h1">
         <span class="line"><span>We power</span></span>
         <span class="line"><span>entertainment<span class="dot">.</span></span></span>
       </h1>
-      <p class="hero-sub">We partner with rights holders and operators to put unmistakable, IP-backed experiences on the world's best floors.</p>
+      <p class="hero-sub" data-i18n="hero.sub">We partner with rights holders and operators to put unmistakable, IP-backed experiences on the world's best floors.</p>
       <div class="hero-ctas">
-        <a href="#partners" class="btn-red" data-scroll>Who we work with
+        <a href="#partners" class="btn-red" data-scroll><span data-i18n="hero.cta1">Who we work with</span>
           <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
         </a>
-        <a href="contact.html" class="link-under">Talk to us</a>
+        <a href="contact.html" class="link-under" data-i18n="hero.cta2">Talk to us</a>
       </div>
     </div>
   </div>
@@ -504,30 +556,30 @@
   <div class="wrap">
     <div class="split">
       <div class="stick">
-        <div class="kicker rv">Who We Work With</div>
-        <h2 class="h2 rv rv-d1">Names you already know.</h2>
-        <p class="sec-intro rv rv-d2">We don't run factories or theme parks. We bring the people who do to the same table, with relationships that took decades to earn.</p>
+        <div class="kicker rv" data-i18n="partners.kicker">Who We Work With</div>
+        <h2 class="h2 rv rv-d1" data-i18n="partners.h2">Names you already know.</h2>
+        <p class="sec-intro rv rv-d2" data-i18n="partners.intro">We don't run factories or theme parks. We bring the people who do to the same table, with relationships that took decades to earn.</p>
       </div>
       <div class="ledger">
         <div class="entry rv">
-          <div class="e-meta">Studios &amp; Rights Holders</div>
-          <h3>Licensing</h3>
-          <p>Direct relationships across Hollywood, broadcast, and professional sports. The names on marquees, jerseys, and movie posters.</p>
+          <div class="e-meta" data-i18n="partners.e1.meta">Studios &amp; Rights Holders</div>
+          <h3 data-i18n="partners.e1.h3">Licensing</h3>
+          <p data-i18n="partners.e1.p">Direct relationships across Hollywood, broadcast, and professional sports. The names on marquees, jerseys, and movie posters.</p>
         </div>
         <div class="entry rv rv-d1">
-          <div class="e-meta">Parks &amp; FECs Worldwide</div>
-          <h3>Operators</h3>
-          <p>Working relationships with major theme park and family entertainment operators around the world.</p>
+          <div class="e-meta" data-i18n="partners.e2.meta">Parks &amp; FECs Worldwide</div>
+          <h3 data-i18n="partners.e2.h3">Operators</h3>
+          <p data-i18n="partners.e2.p">Working relationships with major theme park and family entertainment operators around the world.</p>
         </div>
         <div class="entry rv rv-d2">
-          <div class="e-meta">Factory to Floor</div>
-          <h3>Manufacturing partners</h3>
-          <p>Established lines into arcade distributors and Asia-based manufacturers who build to our partners' standards.</p>
+          <div class="e-meta" data-i18n="partners.e3.meta">Factory to Floor</div>
+          <h3 data-i18n="partners.e3.h3">Manufacturing partners</h3>
+          <p data-i18n="partners.e3.p">Established lines into arcade distributors and Asia-based manufacturers who build to our partners' standards.</p>
         </div>
         <div class="entry rv rv-d3">
-          <div class="e-meta">Structure &amp; Capital</div>
-          <h3>Deal-making</h3>
-          <p>Decades of combined experience structuring joint ventures and financing entertainment projects.</p>
+          <div class="e-meta" data-i18n="partners.e4.meta">Structure &amp; Capital</div>
+          <h3 data-i18n="partners.e4.h3">Deal-making</h3>
+          <p data-i18n="partners.e4.p">Decades of combined experience structuring joint ventures and financing entertainment projects.</p>
         </div>
       </div>
     </div>
@@ -538,33 +590,33 @@
 <section id="standard" class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker rv">The Standard</div>
-      <h2 class="h2 rv rv-d1">What every partnership must be.</h2>
-      <p class="sec-intro rv rv-d2">Three tests a deal has to pass before it carries the Gattillo Global name.</p>
+      <div class="kicker rv" data-i18n="standard.kicker">The Standard</div>
+      <h2 class="h2 rv rv-d1" data-i18n="standard.h2">What every partnership must be.</h2>
+      <p class="sec-intro rv rv-d2" data-i18n="standard.intro">Three tests a deal has to pass before it carries the Gattillo Global name.</p>
     </div>
     <div class="rows">
       <div class="row rv">
         <div class="num" aria-hidden="true">1</div>
-        <h3>IP-backed, always.</h3>
+        <h3 data-i18n="standard.r1.h3">IP-backed, always.</h3>
         <div class="body">
-          <p>Everything we back starts with licensed IP. Hollywood, sports, and entertainment names that are recognized before the first play.</p>
-          <span class="tagline">Known before it's played</span>
+          <p data-i18n="standard.r1.p">Everything we back starts with licensed IP. Hollywood, sports, and entertainment names that are recognized before the first play.</p>
+          <span class="tagline" data-i18n="standard.r1.tag">Known before it's played</span>
         </div>
       </div>
       <div class="row rv rv-d1">
         <div class="num" aria-hidden="true">2</div>
-        <h3>Performance-proven.</h3>
+        <h3 data-i18n="standard.r2.h3">Performance-proven.</h3>
         <div class="body">
-          <p>Success is measured one way: players play, operators profit. We hold every partner to a standard that protects the name on the marquee.</p>
-          <span class="tagline">Players play, operators profit</span>
+          <p data-i18n="standard.r2.p">Success is measured one way: players play, operators profit. We hold every partner to a standard that protects the name on the marquee.</p>
+          <span class="tagline" data-i18n="standard.r2.tag">Players play, operators profit</span>
         </div>
       </div>
       <div class="row rv rv-d2">
         <div class="num" aria-hidden="true">3</div>
-        <h3>Asset-minded.</h3>
+        <h3 data-i18n="standard.r3.h3">Asset-minded.</h3>
         <div class="body">
-          <p>We take positions in what we help create. Every deal adds to enterprise value, not just a commission.</p>
-          <span class="tagline">Owned, not rented</span>
+          <p data-i18n="standard.r3.p">We take positions in what we help create. Every deal adds to enterprise value, not just a commission.</p>
+          <span class="tagline" data-i18n="standard.r3.tag">Owned, not rented</span>
         </div>
       </div>
     </div>
@@ -575,25 +627,25 @@
 <section id="approach" class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker rv">How We Work</div>
-      <h2 class="h2 rv rv-d1">Market-first, from day one.</h2>
-      <p class="sec-intro rv rv-d2">Nothing moves forward on a hunch. Every project clears the gate in front of it before anyone spends a dollar on the next step.</p>
+      <div class="kicker rv" data-i18n="approach.kicker">How We Work</div>
+      <h2 class="h2 rv rv-d1" data-i18n="approach.h2">Market-first, from day one.</h2>
+      <p class="sec-intro rv rv-d2" data-i18n="approach.intro">Nothing moves forward on a hunch. Every project clears the gate in front of it before anyone spends a dollar on the next step.</p>
     </div>
     <div class="gates">
       <div class="gate rv">
-        <div class="g-label">Gate 1 · With operators</div>
-        <h3>Prove the market.</h3>
-        <p>We validate with the operators who'll put an experience on their floor before anything is designed. What they need, what they'll pay, and what's already been tried.</p>
+        <div class="g-label" data-i18n="approach.g1.label">Gate 1 · With operators</div>
+        <h3 data-i18n="approach.g1.h3">Prove the market.</h3>
+        <p data-i18n="approach.g1.p">We validate with the operators who'll put an experience on their floor before anything is designed. What they need, what they'll pay, and what's already been tried.</p>
       </div>
       <div class="gate rv rv-d1">
-        <div class="g-label">Gate 2 · With rights holders</div>
-        <h3>Clear the rights.</h3>
-        <p>Every concept clears IP, licensing, and approvals before our manufacturing partners start a single line.</p>
+        <div class="g-label" data-i18n="approach.g2.label">Gate 2 · With rights holders</div>
+        <h3 data-i18n="approach.g2.h3">Clear the rights.</h3>
+        <p data-i18n="approach.g2.p">Every concept clears IP, licensing, and approvals before our manufacturing partners start a single line.</p>
       </div>
       <div class="gate rv rv-d2">
-        <div class="g-label">Gate 3 · Before anything ships</div>
-        <h3>Structure the deal.</h3>
-        <p>Landed costs are covered and the economics work for every party before anything leaves the factory. No exceptions.</p>
+        <div class="g-label" data-i18n="approach.g3.label">Gate 3 · Before anything ships</div>
+        <h3 data-i18n="approach.g3.h3">Structure the deal.</h3>
+        <p data-i18n="approach.g3.p">Landed costs are covered and the economics work for every party before anything leaves the factory. No exceptions.</p>
       </div>
     </div>
   </div>
@@ -604,18 +656,40 @@
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap" style="position: relative;">
     <div class="v-bulbs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="kicker">The Vision</div>
+    <div class="kicker" data-i18n="vision.kicker">The Vision</div>
     <p class="v-statement" id="vStatement">We're not chasing a single hit. We're building the network that makes them. The right IP, the right operators, and the right partners, brought together until the floor's next <span class="accent">unmistakable hit</span> has the Gattillo Global name behind it.</p>
+  </div>
+</section>
+
+<!-- Who We Are -->
+<section id="about" class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker rv" data-i18n="about.kicker">Who We Are</div>
+      <h2 class="h2 rv rv-d1" data-i18n="about.h2">The name behind the name.</h2>
+    </div>
+    <div class="founder">
+      <div class="founder-photo rv">
+        <img src="img/tony-gattillo.jpg" alt="Tony Gattillo, Founder &amp; CEO of Gattillo Global" width="1332" height="1998" loading="lazy">
+      </div>
+      <div class="founder-bio rv rv-d1">
+        <h3 class="founder-name">Tony Gattillo</h3>
+        <div class="founder-role" data-i18n="about.role">Founder &amp; CEO</div>
+        <p data-i18n="about.p1">For more than 28 years, Tony Gattillo has been helping grow the amusement industry by building lasting relationships, opening new markets, and delivering innovative entertainment solutions.</p>
+        <p data-i18n="about.p2">As the founder of Gattillo Global, Tony represents some of the world's leading amusement brands while launching his own line of original coin-operated games and attractions. His mission is simple: create products people love to play and help distributors and operators build more profitable entertainment destinations.</p>
+        <p data-i18n="about.p3">With a global network, decades of experience, and a passion for innovation, Tony is committed to powering the next generation of entertainment.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Contact -->
 <section id="contact">
   <div class="wrap">
-    <h2 class="c-title rv">Let's talk<span class="dot">.</span></h2>
-    <p class="c-sub rv rv-d1">Building something for the floor? We're always glad to hear from operators, distributors, manufacturers, and IP holders who hold the same standard we do.</p>
+    <h2 class="c-title rv" data-i18n="contact.title">Let's talk<span class="dot">.</span></h2>
+    <p class="c-sub rv rv-d1" data-i18n="contact.sub">Building something for the floor? We're always glad to hear from operators, distributors, manufacturers, and IP holders who hold the same standard we do.</p>
     <div class="c-actions rv rv-d2">
-      <a class="btn-red" href="contact.html">Get in touch
+      <a class="btn-red" href="contact.html"><span data-i18n="contact.cta">Get in touch</span>
         <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
       </a>
       <a class="c-mail" href="mailto:info@gattilloglobal.com">info@gattilloglobal.com</a>
@@ -624,9 +698,10 @@
     <footer>
       <a href="#hero" class="wordmark" data-scroll>GATTILLO GLOBAL<b>.</b></a>
       <nav class="fnav" aria-label="Footer">
-        <a href="#partners" data-scroll>Partners</a>
-        <a href="#standard" data-scroll>The Standard</a>
-        <a href="#approach" data-scroll>How We Work</a>
+        <a href="#partners" data-scroll data-i18n="nav.partners">Partners</a>
+        <a href="#standard" data-scroll data-i18n="nav.standard">The Standard</a>
+        <a href="#approach" data-scroll data-i18n="nav.approach">How We Work</a>
+        <a href="#about" data-scroll data-i18n="nav.about">Who We Are</a>
         <a href="mailto:info@gattilloglobal.com">info@gattilloglobal.com</a>
       </nav>
       <div class="copy">© 2026 GATTILLO GLOBAL</div>
@@ -695,17 +770,24 @@
   });
 
   /* ---------- Ticker ---------- */
-  var attrs = ['Unmistakable', 'Distinctive', 'IP-Backed', 'Sophisticated', 'Quality-Obsessed', 'Performance-Proven', 'Asset-Minded'];
+  var tickerAttrs = {
+    en: ['Unmistakable', 'Distinctive', 'IP-Backed', 'Sophisticated', 'Quality-Obsessed', 'Performance-Proven', 'Asset-Minded'],
+    zh: ['独具辨识度', '与众不同', '知识产权背书', '精工细作', '品质至上', '实绩为证', '资产思维'],
+    fr: ['Incontournable', 'Distinctif', 'Adossé à des licences', 'Sophistiqué', 'Obsédé par la qualité', 'Performance prouvée', 'Esprit patrimonial']
+  };
   var track = document.getElementById('tickerTrack');
-  for (var s = 0; s < 2; s++) {
-    var set = document.createElement('div');
-    set.className = 'set';
-    attrs.forEach(function (a) {
-      var sp = document.createElement('span'); sp.textContent = a.toUpperCase();
-      set.appendChild(sp);
-      set.appendChild(document.createElement('i'));
-    });
-    track.appendChild(set);
+  function buildTicker(lang) {
+    track.innerHTML = '';
+    for (var s = 0; s < 2; s++) {
+      var set = document.createElement('div');
+      set.className = 'set';
+      tickerAttrs[lang].forEach(function (a) {
+        var sp = document.createElement('span'); sp.textContent = lang === 'zh' ? a : a.toUpperCase();
+        set.appendChild(sp);
+        set.appendChild(document.createElement('i'));
+      });
+      track.appendChild(set);
+    }
   }
 
   /* ---------- Reveals ---------- */
@@ -716,31 +798,295 @@
   }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
   document.querySelectorAll('.rv, .gate').forEach(function (el) { io.observe(el); });
 
-  /* ---------- Vision: word-by-word light-up ---------- */
+  /* ---------- Vision: word/character light-up ---------- */
   var vs = document.getElementById('vStatement');
-  var html = vs.innerHTML;
-  vs.innerHTML = html.replace(/(<span class="accent">)([\s\S]*?)(<\/span>)|([^\s<]+)/g, function (m, open, inner, close, plain) {
-    if (open) {
-      return inner.trim().split(/\s+/).map(function (word) {
-        return '<span class="w accent">' + word + '</span>';
-      }).join(' ');
-    }
-    return '<span class="w">' + plain + '</span>';
-  });
-  var words = vs.querySelectorAll('.w');
   var vSection = document.getElementById('vision');
+  var visionWords = [];
+  function wrapVision(rawHtml, splitByChar) {
+    var re = splitByChar
+      ? /(<span class="accent">)([\s\S]*?)(<\/span>)|([^\s<])/g
+      : /(<span class="accent">)([\s\S]*?)(<\/span>)|([^\s<]+)/g;
+    return rawHtml.replace(re, function (m, open, inner, close, plain) {
+      if (open) {
+        if (splitByChar) {
+          return Array.prototype.slice.call(inner.trim()).map(function (ch) {
+            return '<span class="w accent">' + ch + '</span>';
+          }).join('');
+        }
+        return inner.trim().split(/\s+/).map(function (word) {
+          return '<span class="w accent">' + word + '</span>';
+        }).join(' ');
+      }
+      return '<span class="w">' + plain + '</span>';
+    });
+  }
+  function setupVision(lang) {
+    var replay = vSection.classList.contains('in');
+    vs.innerHTML = wrapVision(i18n[lang]['vision.statement'], lang === 'zh');
+    visionWords = Array.prototype.slice.call(vs.querySelectorAll('.w'));
+    if (replay) {
+      var step = lang === 'zh' ? 16 : 45;
+      visionWords.forEach(function (w, i) {
+        w.classList.remove('on');
+        setTimeout(function () { w.classList.add('on'); }, i * step);
+      });
+    }
+  }
   var vIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (en.isIntersecting) {
         vSection.classList.add('in');
-        words.forEach(function (w, i) {
-          setTimeout(function () { w.classList.add('on'); }, 350 + i * 45);
+        var step = currentLang === 'zh' ? 16 : 45;
+        visionWords.forEach(function (w, i) {
+          setTimeout(function () { w.classList.add('on'); }, 350 + i * step);
         });
         vIO.unobserve(vSection);
       }
     });
   }, { threshold: 0.4 });
   vIO.observe(vSection);
+
+  /* ---------- i18n: English / Mandarin ---------- */
+  var i18n = {
+    en: {
+      'meta.title': `Gattillo Global | We Power Entertainment`,
+      'meta.desc': `Gattillo Global partners with rights holders and operators to put unmistakable, IP-backed experiences on the world's best floors.`,
+      'nav.partners': `Partners`,
+      'nav.standard': `The Standard`,
+      'nav.approach': `How We Work`,
+      'nav.vision': `Vision`,
+      'nav.about': `Who We Are`,
+      'nav.cta': `Let's Talk`,
+      'nav.mmfoot': `Entertainment &amp; Amusement`,
+      'hero.kicker': `Entertainment &amp; Amusement Partnerships`,
+      'hero.h1': `<span class="line"><span>We power</span></span><span class="line"><span>entertainment<span class="dot">.</span></span></span>`,
+      'hero.sub': `We partner with rights holders and operators to put unmistakable, IP-backed experiences on the world's best floors.`,
+      'hero.cta1': `Who we work with`,
+      'hero.cta2': `Talk to us`,
+      'partners.kicker': `Who We Work With`,
+      'partners.h2': `Names you already know.`,
+      'partners.intro': `We don't run factories or theme parks. We bring the people who do to the same table, with relationships that took decades to earn.`,
+      'partners.e1.meta': `Studios &amp; Rights Holders`,
+      'partners.e1.h3': `Licensing`,
+      'partners.e1.p': `Direct relationships across Hollywood, broadcast, and professional sports. The names on marquees, jerseys, and movie posters.`,
+      'partners.e2.meta': `Parks &amp; FECs Worldwide`,
+      'partners.e2.h3': `Operators`,
+      'partners.e2.p': `Working relationships with major theme park and family entertainment operators around the world.`,
+      'partners.e3.meta': `Factory to Floor`,
+      'partners.e3.h3': `Manufacturing partners`,
+      'partners.e3.p': `Established lines into arcade distributors and Asia-based manufacturers who build to our partners' standards.`,
+      'partners.e4.meta': `Structure &amp; Capital`,
+      'partners.e4.h3': `Deal-making`,
+      'partners.e4.p': `Decades of combined experience structuring joint ventures and financing entertainment projects.`,
+      'standard.kicker': `The Standard`,
+      'standard.h2': `What every partnership must be.`,
+      'standard.intro': `Three tests a deal has to pass before it carries the Gattillo Global name.`,
+      'standard.r1.h3': `IP-backed, always.`,
+      'standard.r1.p': `Everything we back starts with licensed IP. Hollywood, sports, and entertainment names that are recognized before the first play.`,
+      'standard.r1.tag': `Known before it's played`,
+      'standard.r2.h3': `Performance-proven.`,
+      'standard.r2.p': `Success is measured one way: players play, operators profit. We hold every partner to a standard that protects the name on the marquee.`,
+      'standard.r2.tag': `Players play, operators profit`,
+      'standard.r3.h3': `Asset-minded.`,
+      'standard.r3.p': `We take positions in what we help create. Every deal adds to enterprise value, not just a commission.`,
+      'standard.r3.tag': `Owned, not rented`,
+      'approach.kicker': `How We Work`,
+      'approach.h2': `Market-first, from day one.`,
+      'approach.intro': `Nothing moves forward on a hunch. Every project clears the gate in front of it before anyone spends a dollar on the next step.`,
+      'approach.g1.label': `Gate 1 · With operators`,
+      'approach.g1.h3': `Prove the market.`,
+      'approach.g1.p': `We validate with the operators who'll put an experience on their floor before anything is designed. What they need, what they'll pay, and what's already been tried.`,
+      'approach.g2.label': `Gate 2 · With rights holders`,
+      'approach.g2.h3': `Clear the rights.`,
+      'approach.g2.p': `Every concept clears IP, licensing, and approvals before our manufacturing partners start a single line.`,
+      'approach.g3.label': `Gate 3 · Before anything ships`,
+      'approach.g3.h3': `Structure the deal.`,
+      'approach.g3.p': `Landed costs are covered and the economics work for every party before anything leaves the factory. No exceptions.`,
+      'vision.kicker': `The Vision`,
+      'vision.statement': `We're not chasing a single hit. We're building the network that makes them. The right IP, the right operators, and the right partners, brought together until the floor's next <span class="accent">unmistakable hit</span> has the Gattillo Global name behind it.`,
+      'about.kicker': `Who We Are`,
+      'about.h2': `The name behind the name.`,
+      'about.role': `Founder &amp; CEO`,
+      'about.p1': `For more than 28 years, Tony Gattillo has been helping grow the amusement industry by building lasting relationships, opening new markets, and delivering innovative entertainment solutions.`,
+      'about.p2': `As the founder of Gattillo Global, Tony represents some of the world's leading amusement brands while launching his own line of original coin-operated games and attractions. His mission is simple: create products people love to play and help distributors and operators build more profitable entertainment destinations.`,
+      'about.p3': `With a global network, decades of experience, and a passion for innovation, Tony is committed to powering the next generation of entertainment.`,
+      'contact.title': `Let's talk<span class="dot">.</span>`,
+      'contact.sub': `Building something for the floor? We're always glad to hear from operators, distributors, manufacturers, and IP holders who hold the same standard we do.`,
+      'contact.cta': `Get in touch`
+    },
+    zh: {
+      'meta.title': `Gattillo Global | 我们驱动娱乐产业`,
+      'meta.desc': `Gattillo Global 携手版权方与运营商，将独具辨识度、拥有知识产权背书的体验带入全球顶尖场所。`,
+      'nav.partners': `合作伙伴`,
+      'nav.standard': `我们的标准`,
+      'nav.approach': `我们的方法`,
+      'nav.vision': `愿景`,
+      'nav.about': `关于我们`,
+      'nav.cta': `联系我们`,
+      'nav.mmfoot': `娱乐与游艺`,
+      'hero.kicker': `娱乐与游艺合作伙伴`,
+      'hero.h1': `<span class="line"><span>我们驱动</span></span><span class="line"><span>娱乐产业<span class="dot">。</span></span></span>`,
+      'hero.sub': `我们携手版权方与运营商，将独具特色、拥有知识产权背书的娱乐体验带入全球顶尖场所。`,
+      'hero.cta1': `我们的合作伙伴`,
+      'hero.cta2': `联系我们`,
+      'partners.kicker': `合作伙伴`,
+      'partners.h2': `您所熟知的名字。`,
+      'partners.intro': `我们不经营工厂或主题公园，而是将真正掌握这些资源的人聚集到同一张谈判桌前——凭借数十年积累的信任与人脉。`,
+      'partners.e1.meta': `制片公司与版权方`,
+      'partners.e1.h3': `授权合作`,
+      'partners.e1.p': `与好莱坞、广播媒体及职业体育联盟建立的直接合作关系——那些印在海报、球衣与招牌上的名字。`,
+      'partners.e2.meta': `全球主题公园与家庭娱乐中心`,
+      'partners.e2.h3': `运营方`,
+      'partners.e2.p': `与全球主要主题公园及家庭娱乐中心运营方保持稳固的合作关系。`,
+      'partners.e3.meta': `从工厂到卖场`,
+      'partners.e3.h3': `制造合作伙伴`,
+      'partners.e3.p': `与街机经销商及亚洲制造商建立成熟渠道，按照合作伙伴的标准进行生产。`,
+      'partners.e4.meta': `架构与资本`,
+      'partners.e4.h3': `交易撮合`,
+      'partners.e4.p': `在合资架构搭建与娱乐项目融资方面，拥有数十年的综合经验。`,
+      'standard.kicker': `我们的标准`,
+      'standard.h2': `每一次合作都必须达到的标准。`,
+      'standard.intro': `任何交易，必须通过以下三项考验，才能冠以 Gattillo Global 之名。`,
+      'standard.r1.h3': `始终以知识产权为基础。`,
+      'standard.r1.p': `我们支持的一切都始于经过授权的知识产权——那些在第一次体验之前就已被广泛认可的好莱坞、体育与娱乐品牌。`,
+      'standard.r1.tag': `未玩先知名`,
+      'standard.r2.h3': `业绩说话。`,
+      'standard.r2.p': `成功只有一种衡量方式：玩家愿意玩，运营商能盈利。我们以此标准要求每一位合作伙伴，守护招牌上的名字。`,
+      'standard.r2.tag': `玩家参与，运营盈利`,
+      'standard.r3.h3': `资产思维。`,
+      'standard.r3.p': `我们参与并持有自己所助力打造的成果。每一笔交易都在积累企业价值，而不仅仅是赚取佣金。`,
+      'standard.r3.tag': `拥有，而非租借`,
+      'approach.kicker': `我们的方法`,
+      'approach.h2': `从第一天起，市场优先。`,
+      'approach.intro': `没有任何项目仅凭直觉推进。每个项目都必须先通过面前的关卡，才能进入下一阶段的投入。`,
+      'approach.g1.label': `第一关 · 携手运营商`,
+      'approach.g1.h3': `验证市场。`,
+      'approach.g1.p': `在设计开始之前，我们先与将把体验项目投放到场地的运营商进行验证——了解他们的需求、预算，以及此前已经尝试过的方案。`,
+      'approach.g2.label': `第二关 · 携手版权方`,
+      'approach.g2.h3': `厘清版权。`,
+      'approach.g2.p': `在我们的制造合作伙伴启动生产线之前，每一个创意都必须完成知识产权、授权与审批流程。`,
+      'approach.g3.label': `第三关 · 出货之前`,
+      'approach.g3.h3': `搭建交易架构。`,
+      'approach.g3.p': `在任何产品离开工厂之前，到岸成本必须覆盖，且经济效益对各方都成立——没有例外。`,
+      'vision.kicker': `愿景`,
+      'vision.statement': `我们追求的不是一次性的爆款，而是打造能持续孕育爆款的网络。正确的知识产权、正确的运营商与正确的合作伙伴汇聚一堂，直到市场上出现下一个<span class="accent">令人无法忽视的爆款</span>——而它的背后，写着 Gattillo Global 的名字。`,
+      'about.kicker': `关于我们`,
+      'about.h2': `名字背后的名字。`,
+      'about.role': `创始人兼首席执行官`,
+      'about.p1': `28 多年来，Tony Gattillo 始终致力于推动娱乐行业的发展——通过建立长久的合作关系、开拓新市场，以及提供创新的娱乐解决方案。`,
+      'about.p2': `作为 Gattillo Global 的创始人，Tony 代表着一些全球顶尖的娱乐品牌，同时也推出了自己原创的投币式游戏与娱乐设施系列。他的使命很简单：打造玩家真心喜爱的产品，并帮助经销商与运营商打造盈利能力更强的娱乐场所。`,
+      'about.p3': `凭借全球化的网络、数十年的行业经验，以及对创新的热情，Tony 致力于驱动下一代娱乐产业的发展。`,
+      'contact.title': `让我们聊聊<span class="dot">。</span>`,
+      'contact.sub': `正在为场地打造新项目？我们始终欢迎与我们秉持同样标准的运营商、经销商、制造商以及版权方进行交流。`,
+      'contact.cta': `联系我们`
+    },
+    fr: {
+      'meta.title': `Gattillo Global | Nous propulsons le divertissement`,
+      'meta.desc': `Gattillo Global s'associe à des ayants droit et des exploitants pour proposer des expériences incontournables, adossées à des licences, dans les meilleurs espaces au monde.`,
+      'nav.partners': `Partenaires`,
+      'nav.standard': `Notre exigence`,
+      'nav.approach': `Notre méthode`,
+      'nav.vision': `Vision`,
+      'nav.about': `Qui nous sommes`,
+      'nav.cta': `Contactez-nous`,
+      'nav.mmfoot': `Divertissement &amp; Loisirs`,
+      'hero.kicker': `Partenariats Divertissement &amp; Loisirs`,
+      'hero.h1': `<span class="line"><span>Nous propulsons</span></span><span class="line"><span>le divertissement<span class="dot">.</span></span></span>`,
+      'hero.sub': `Nous nous associons à des ayants droit et des exploitants pour proposer des expériences incontournables, adossées à des licences, dans les meilleurs espaces au monde.`,
+      'hero.cta1': `Nos partenaires`,
+      'hero.cta2': `Parlons-en`,
+      'partners.kicker': `Nos partenaires`,
+      'partners.h2': `Des noms que vous connaissez déjà.`,
+      'partners.intro': `Nous n'exploitons ni usines ni parcs à thème. Nous réunissons à la même table ceux qui le font, grâce à des relations bâties en plusieurs décennies.`,
+      'partners.e1.meta': `Studios &amp; ayants droit`,
+      'partners.e1.h3': `Licences`,
+      'partners.e1.p': `Relations directes avec Hollywood, les diffuseurs et le sport professionnel. Les noms qu'on retrouve sur les affiches, les maillots et les enseignes.`,
+      'partners.e2.meta': `Parcs &amp; FEC dans le monde entier`,
+      'partners.e2.h3': `Exploitants`,
+      'partners.e2.p': `Des relations de travail avec les principaux exploitants de parcs à thème et de centres de loisirs familiaux à travers le monde.`,
+      'partners.e3.meta': `De l'usine au point de vente`,
+      'partners.e3.h3': `Partenaires de fabrication`,
+      'partners.e3.p': `Des filières établies vers les distributeurs d'arcade et les fabricants basés en Asie, qui produisent selon les standards de nos partenaires.`,
+      'partners.e4.meta': `Structuration &amp; capital`,
+      'partners.e4.h3': `Montage des accords`,
+      'partners.e4.p': `Des décennies d'expérience cumulée dans la structuration de coentreprises et le financement de projets de divertissement.`,
+      'standard.kicker': `Notre exigence`,
+      'standard.h2': `Ce que doit être chaque partenariat.`,
+      'standard.intro': `Trois épreuves qu'un accord doit franchir avant de porter le nom Gattillo Global.`,
+      'standard.r1.h3': `Toujours adossé à une licence.`,
+      'standard.r1.p': `Tout ce que nous soutenons repose sur une propriété intellectuelle sous licence. Des noms d'Hollywood, du sport et du divertissement reconnus avant même la première utilisation.`,
+      'standard.r1.tag': `Connu avant d'être joué`,
+      'standard.r2.h3': `La performance fait foi.`,
+      'standard.r2.p': `Le succès se mesure d'une seule façon : les joueurs jouent, les exploitants gagnent de l'argent. Nous appliquons cette exigence à chaque partenaire, pour protéger le nom sur l'enseigne.`,
+      'standard.r2.tag': `Les joueurs jouent, les exploitants gagnent`,
+      'standard.r3.h3': `Esprit patrimonial.`,
+      'standard.r3.p': `Nous prenons des participations dans ce que nous aidons à créer. Chaque accord accroît la valeur de l'entreprise, pas seulement une commission.`,
+      'standard.r3.tag': `Possédé, non loué`,
+      'approach.kicker': `Notre méthode`,
+      'approach.h2': `Le marché d'abord, dès le premier jour.`,
+      'approach.intro': `Rien n'avance sur une intuition. Chaque projet doit franchir l'étape qui le précède avant qu'un seul dollar ne soit engagé sur la suivante.`,
+      'approach.g1.label': `Étape 1 · Avec les exploitants`,
+      'approach.g1.h3': `Valider le marché.`,
+      'approach.g1.p': `Nous validons auprès des exploitants qui accueilleront l'expérience avant même sa conception. Leurs besoins, leur budget, et ce qui a déjà été tenté.`,
+      'approach.g2.label': `Étape 2 · Avec les ayants droit`,
+      'approach.g2.h3': `Clarifier les droits.`,
+      'approach.g2.p': `Chaque concept passe par la propriété intellectuelle, les licences et les validations avant que nos partenaires de fabrication ne lancent la moindre ligne de production.`,
+      'approach.g3.label': `Étape 3 · Avant toute expédition`,
+      'approach.g3.h3': `Structurer l'accord.`,
+      'approach.g3.p': `Les coûts rendus sont couverts et l'équation économique fonctionne pour chaque partie avant qu'un produit ne quitte l'usine. Sans exception.`,
+      'vision.kicker': `La vision`,
+      'vision.statement': `Nous ne courons pas après un succès isolé. Nous construisons le réseau qui les produit. Les bonnes licences, les bons exploitants et les bons partenaires, réunis jusqu'à ce que le prochain <span class="accent">succès incontournable</span> du secteur porte le nom Gattillo Global.`,
+      'about.kicker': `Qui nous sommes`,
+      'about.h2': `Le nom derrière le nom.`,
+      'about.role': `Fondateur &amp; PDG`,
+      'about.p1': `Depuis plus de 28 ans, Tony Gattillo contribue à faire grandir l'industrie du divertissement en bâtissant des relations durables, en ouvrant de nouveaux marchés et en proposant des solutions de divertissement innovantes.`,
+      'about.p2': `En tant que fondateur de Gattillo Global, Tony représente certaines des plus grandes marques de divertissement au monde, tout en lançant sa propre gamme de jeux et attractions à pièces originaux. Sa mission est simple : créer des produits que les joueurs adorent et aider distributeurs et exploitants à bâtir des espaces de divertissement plus rentables.`,
+      'about.p3': `Fort d'un réseau mondial, de décennies d'expérience et d'une passion pour l'innovation, Tony s'engage à propulser la prochaine génération du divertissement.`,
+      'contact.title': `Parlons-en<span class="dot">.</span>`,
+      'contact.sub': `Vous préparez un projet pour votre espace ? Nous sommes toujours heureux d'échanger avec des exploitants, distributeurs, fabricants et ayants droit qui partagent notre exigence.`,
+      'contact.cta': `Nous contacter`
+    }
+  };
+
+  var currentLang = 'en';
+  var langToggleBtns = document.querySelectorAll('.lang-toggle');
+  var metaDescEl = document.querySelector('meta[name="description"]');
+
+  function setLang(lang) {
+    if (!i18n[lang]) return;
+    currentLang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : (lang === 'fr' ? 'fr' : 'en');
+    var dict = i18n[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    buildTicker(lang);
+    setupVision(lang);
+    document.title = dict['meta.title'];
+    if (metaDescEl) metaDescEl.setAttribute('content', dict['meta.desc']);
+    langToggleBtns.forEach(function (btn) {
+      btn.querySelectorAll('[data-lang-opt]').forEach(function (opt) {
+        opt.classList.toggle('active', opt.getAttribute('data-lang-opt') === lang);
+      });
+    });
+    try { localStorage.setItem('gg-lang', lang); } catch (e) {}
+  }
+
+  var langOrder = ['en', 'zh', 'fr'];
+  langToggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var next = langOrder[(langOrder.indexOf(currentLang) + 1) % langOrder.length];
+      setLang(next);
+    });
+  });
+
+  var savedLang = 'en';
+  try {
+    var stored = localStorage.getItem('gg-lang');
+    if (langOrder.indexOf(stored) !== -1) savedLang = stored;
+  } catch (e) {}
+  setLang(savedLang);
 })();
 </script>
 </body>
