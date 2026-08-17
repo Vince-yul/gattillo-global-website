@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Partners | Gattillo Global</title>
+<meta name="description" content="Gattillo Global partners with world-class leaders in their field to elevate the visitor experience. Meet BoldMove Nation and Imply.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230E0C0A'/><text x='50' y='73' font-family='Arial Black' font-size='62' font-weight='900' text-anchor='middle' fill='%23E8492F'>G</text></svg>">
+<style>
+  @font-face { font-family: 'Satoshi'; src: url('fonts/satoshi-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url('fonts/satoshi-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url('fonts/satoshi-900.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'General Sans'; src: url('fonts/general-sans-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  :root {
+    --stage: #0E0C0A;
+    --stage-deep: #0A0908;
+    --panel: #14110E;
+    --hairline: rgba(237,230,216,0.13);
+    --bone: #EDE6D8;
+    --bone-dim: rgba(237,230,216,0.6);
+    --bone-faint: rgba(237,230,216,0.34);
+    --bone-meta: rgba(237,230,216,0.55);
+    --red: #E8492F;
+    --red-hot: #FF6B4A;
+    --display: 'Satoshi', 'Helvetica Neue', sans-serif;
+    --body: 'General Sans', 'Helvetica Neue', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--body); background: var(--stage); color: var(--bone);
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--red); color: var(--bone); }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  .skip {
+    position: fixed; top: 10px; left: 10px; z-index: 7000;
+    background: var(--bone); color: var(--stage); font-size: 13.5px; font-weight: 600;
+    padding: 10px 18px; border-radius: 100px;
+    transform: translateY(-200%); transition: transform 0.2s;
+  }
+  .skip:focus-visible { transform: translateY(0); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+  .kicker {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; color: var(--red);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .kicker::before { content: ''; width: 30px; height: 1px; background: var(--red); }
+  .grain {
+    position: fixed; inset: -50%; width: 200%; height: 200%;
+    pointer-events: none; z-index: 2000; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Nav */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px clamp(24px, 5vw, 64px);
+    transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+  }
+  #nav.scrolled {
+    background: rgba(14,12,10,0.88); backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding-top: 15px; padding-bottom: 15px;
+    box-shadow: 0 1px 0 var(--hairline);
+  }
+  .wordmark {
+    font-family: var(--display); font-weight: 900; font-size: 17px;
+    letter-spacing: 0.06em; color: var(--bone); position: relative; z-index: 1002;
+  }
+  .wordmark b { color: var(--red); font-weight: 900; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a:not(.cta) {
+    font-size: 13.5px; font-weight: 500; color: var(--bone-dim); position: relative;
+    letter-spacing: 0.02em; transition: color 0.3s;
+  }
+  #nav .links a:not(.cta):hover { color: var(--bone); }
+  #nav .links a:not(.cta)::after {
+    content: ''; position: absolute; left: 0; bottom: -6px; height: 1px; width: 0;
+    background: var(--red); transition: width 0.3s cubic-bezier(0.76,0,0.24,1);
+  }
+  #nav .links a:not(.cta):hover::after { width: 100%; }
+  .lang-toggle {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: none; border: 1px solid rgba(237,230,216,0.28); border-radius: 100px;
+    padding: 9px 16px; cursor: pointer; font-family: var(--body);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.03em; color: var(--bone-faint);
+    transition: border-color 0.3s;
+  }
+  .lang-toggle:hover { border-color: var(--red); }
+  .lang-toggle span[data-lang-opt] { color: var(--bone-faint); transition: color 0.3s; }
+  .lang-toggle span[data-lang-opt].active { color: var(--bone); }
+  .lang-toggle-mobile { margin-top: 24px; align-self: flex-start; font-size: 14px; padding: 10px 20px; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--red); color: var(--stage) !important;
+    background: var(--red);
+    font-weight: 500; font-size: 13.5px; letter-spacing: 0.02em;
+    padding: 11px 24px; border-radius: 100px;
+  }
+  #burger { display: none; background: none; border: none; cursor: pointer; z-index: 1002; padding: 6px; color: var(--bone); }
+  #burger svg { width: 28px; height: 28px; display: block; }
+  #burger .ico-x { display: none; }
+  body.menu-open #burger .ico-list { display: none; }
+  body.menu-open #burger .ico-x { display: block; }
+  body.menu-open #nav { z-index: 1002; background: transparent !important; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  #mobileMenu {
+    position: fixed; inset: 0; z-index: 1001; background: var(--stage-deep);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 32px; clip-path: circle(0 at calc(100% - 44px) 42px);
+    transition: clip-path 0.65s cubic-bezier(0.76,0,0.24,1); visibility: hidden;
+  }
+  body.menu-open #mobileMenu { clip-path: circle(150% at calc(100% - 44px) 42px); visibility: visible; }
+  #mobileMenu a {
+    font-family: var(--display); font-weight: 700; color: var(--bone);
+    font-size: clamp(30px, 8vw, 46px); padding: 12px 0; line-height: 1.05;
+    border-bottom: 1px solid var(--hairline);
+    opacity: 0; transform: translateY(24px); transition: opacity 0.4s, transform 0.4s;
+  }
+  body.menu-open #mobileMenu a { opacity: 1; transform: translateY(0); }
+  body.menu-open #mobileMenu a:nth-child(1) { transition-delay: 0.14s; }
+  body.menu-open #mobileMenu a:nth-child(2) { transition-delay: 0.19s; }
+  body.menu-open #mobileMenu a:nth-child(3) { transition-delay: 0.24s; }
+  body.menu-open #mobileMenu a:nth-child(4) { transition-delay: 0.29s; }
+  body.menu-open #mobileMenu a:nth-child(5) { transition-delay: 0.34s; }
+  body.menu-open #mobileMenu a:nth-child(6) { transition-delay: 0.39s; }
+  body.menu-open #mobileMenu a:nth-child(7) { transition-delay: 0.44s; }
+
+  /* Layout */
+  main { padding: clamp(150px, 18vw, 220px) 0 clamp(90px, 10vw, 140px); position: relative; }
+  main .glow {
+    position: absolute; left: -10vw; top: -10vh; pointer-events: none;
+    width: 70vw; height: 70vh;
+    background: radial-gradient(ellipse at center, rgba(232,73,47,0.09), transparent 65%);
+  }
+  .intro { max-width: 760px; position: relative; }
+  .page-title {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(38px, 5vw, 66px); letter-spacing: -0.03em; line-height: 1.06;
+    margin-top: 28px;
+  }
+  .page-title .dot { color: var(--red); }
+  .lead { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.65; color: var(--bone-dim); margin-top: 26px; max-width: 620px; }
+
+  /* Partner cards */
+  .partners-list { display: flex; flex-direction: column; gap: clamp(24px, 2.6vw, 34px); margin-top: clamp(56px, 6vw, 88px); position: relative; }
+  .partner-card {
+    display: grid; grid-template-columns: 240px 1fr; gap: clamp(32px, 4vw, 56px); align-items: center;
+    border: 1px solid var(--hairline); background: var(--panel); border-radius: 6px;
+    padding: clamp(28px, 3vw, 40px);
+  }
+  .partner-logo {
+    background: var(--bone); border-radius: 4px; aspect-ratio: 4 / 3;
+    display: flex; align-items: center; justify-content: center; padding: clamp(20px, 2.4vw, 32px);
+  }
+  .partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .partner-tag {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+  }
+  .partner-card h3 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(23px, 2.2vw, 29px); letter-spacing: -0.01em; line-height: 1.15;
+  }
+  .partner-card p { font-size: clamp(15px, 1.1vw, 16.5px); line-height: 1.72; color: var(--bone-dim); margin-top: 14px; max-width: 640px; }
+  .partner-link {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+    font-weight: 600; font-size: 14px; color: var(--bone);
+    border-bottom: 1px solid var(--hairline); padding-bottom: 4px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .partner-link:hover { color: var(--red-hot); border-color: var(--red-hot); }
+  .partner-link svg { width: 13px; height: 13px; transition: transform 0.25s; }
+  .partner-link:hover svg { transform: translate(2px, -2px); }
+  @media (max-width: 720px) {
+    .partner-card { grid-template-columns: 1fr; }
+    .partner-logo { max-width: 220px; margin: 0 auto; width: 100%; }
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px clamp(24px, 5vw, 64px);
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  footer .fnav { display: flex; gap: 28px; font-size: 13.5px; color: var(--bone-meta); flex-wrap: wrap; }
+  footer .fnav a { transition: color 0.25s; }
+  footer .fnav a:hover { color: var(--bone); }
+  footer .copy { font-size: 12px; letter-spacing: 0.12em; color: var(--bone-meta); }
+  footer .wordmark { font-size: 15px; }
+
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(0.19,1,0.22,1), transform 0.9s cubic-bezier(0.19,1,0.22,1); }
+  .rv.in { opacity: 1; transform: translateY(0); }
+  .rv-d1 { transition-delay: 0.08s; } .rv-d2 { transition-delay: 0.16s; }
+  html.no-js .rv { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    #nav .links { display: none; }
+    #burger { display: block; }
+    footer { flex-direction: column; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .rv { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header id="nav">
+  <a href="index.html#hero" class="wordmark">GATTILLO GLOBAL<b>.</b></a>
+  <nav class="links" aria-label="Primary">
+    <a href="index.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="index.html#standard" data-i18n="nav.standard">The Standard</a>
+    <a href="index.html#approach" data-i18n="nav.approach">How We Work</a>
+    <a href="index.html#vision" data-i18n="nav.vision">Vision</a>
+    <a href="partners.html" data-i18n="nav.ourPartners">Our Partners</a>
+    <a href="index.html#about" data-i18n="nav.about">Who We Are</a>
+    <button class="lang-toggle" type="button" aria-label="Switch language">
+      <span data-lang-opt="en">EN</span><span aria-hidden="true">/</span><span data-lang-opt="zh">中</span><span aria-hidden="true">/</span><span data-lang-opt="fr">FR</span>
+    </button>
+    <a href="contact.html" class="cta" data-i18n="nav.cta">Let's Talk</a>
+  </nav>
+  <button id="burger" aria-label="Menu" aria-expanded="false">
+    <svg class="ico-list" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+    <svg class="ico-x" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+  </button>
+</header>
+<div id="mobileMenu">
+  <a href="index.html#partners" data-i18n="nav.partners">Partners</a>
+  <a href="index.html#standard" data-i18n="nav.standard">The Standard</a>
+  <a href="index.html#approach" data-i18n="nav.approach">How We Work</a>
+  <a href="index.html#vision" data-i18n="nav.vision">Vision</a>
+  <a href="partners.html" data-i18n="nav.ourPartners">Our Partners</a>
+  <a href="index.html#about" data-i18n="nav.about">Who We Are</a>
+  <a href="contact.html" data-i18n="nav.cta">Let's Talk</a>
+  <button class="lang-toggle lang-toggle-mobile" type="button" aria-label="Switch language">
+    <span data-lang-opt="en">EN</span><span aria-hidden="true">/</span><span data-lang-opt="zh">中</span><span aria-hidden="true">/</span><span data-lang-opt="fr">FR</span>
+  </button>
+</div>
+
+<main id="main">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="intro">
+      <div class="kicker rv" data-i18n="partners.kicker">Our Partners</div>
+      <h1 class="page-title rv rv-d1" data-i18n="partners.h1">We partner with world-class leaders in their field<span class="dot">.</span></h1>
+      <p class="lead rv rv-d2" data-i18n="partners.lead">Together, we elevate the visitor's experience &mdash; pairing world-class attraction design with the technology that runs the floor.</p>
+    </div>
+
+    <div class="partners-list">
+      <div class="partner-card rv">
+        <div class="partner-logo"><img src="img/partners/boldmove-nation-logo.png" alt="BoldMove Nation logo" loading="lazy"></div>
+        <div>
+          <div class="partner-tag" data-i18n="partners.p1.tag">Attraction Design &amp; Engineering</div>
+          <h3>BoldMove Nation</h3>
+          <p data-i18n="partners.p1.p">BoldMove Nation designs and engineers the rides guests remember &mdash; dark rides, family coasters, and media-based attractions built so the technology always serves the story. Every project aims to create what they call a &ldquo;happy world&rdquo; worth coming back to.</p>
+          <a class="partner-link" href="https://www.boldmove-nation.com/" target="_blank" rel="noopener">
+            <span data-i18n="partners.visit">Visit site</span>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="partner-card rv rv-d1">
+        <div class="partner-logo"><img src="img/partners/imply-logo.webp" alt="Imply logo" loading="lazy"></div>
+        <div>
+          <div class="partner-tag" data-i18n="partners.p2.tag">Access Control, Ticketing &amp; Venue Technology</div>
+          <h3>Imply</h3>
+          <p data-i18n="partners.p2.p">Imply builds the technology running behind the scenes of modern entertainment venues &mdash; access control, ticketing, self-service kiosks, and bowling lane systems engineered for reliability at scale. Their integrated platforms operate in more than 125 countries.</p>
+          <a class="partner-link" href="https://imply.com/engb/" target="_blank" rel="noopener">
+            <span data-i18n="partners.visit">Visit site</span>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="index.html#hero" class="wordmark">GATTILLO GLOBAL<b>.</b></a>
+  <nav class="fnav" aria-label="Footer">
+    <a href="index.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="index.html#standard" data-i18n="nav.standard">The Standard</a>
+    <a href="partners.html" data-i18n="nav.ourPartners">Our Partners</a>
+    <a href="mailto:info@gattilloglobal.com">info@gattilloglobal.com</a>
+  </nav>
+  <div class="copy">© 2026 GATTILLO GLOBAL</div>
+</footer>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function () {
+    var open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(function (a) {
+    a.addEventListener('click', function () { document.body.classList.remove('menu-open'); });
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+  /* ---------- i18n: English / Mandarin / French ---------- */
+  var i18n = {
+    en: {
+      'meta.title': 'Our Partners | Gattillo Global',
+      'meta.desc': "Gattillo Global partners with world-class leaders in their field to elevate the visitor experience. Meet BoldMove Nation and Imply.",
+      'nav.partners': 'Partners',
+      'nav.standard': 'The Standard',
+      'nav.approach': 'How We Work',
+      'nav.vision': 'Vision',
+      'nav.ourPartners': 'Our Partners',
+      'nav.about': 'Who We Are',
+      'nav.cta': "Let's Talk",
+      'partners.kicker': 'Our Partners',
+      'partners.h1': 'We partner with world-class leaders in their field<span class="dot">.</span>',
+      'partners.lead': "Together, we elevate the visitor's experience — pairing world-class attraction design with the technology that runs the floor.",
+      'partners.p1.tag': 'Attraction Design &amp; Engineering',
+      'partners.p1.p': 'BoldMove Nation designs and engineers the rides guests remember — dark rides, family coasters, and media-based attractions built so the technology always serves the story. Every project aims to create what they call a “happy world” worth coming back to.',
+      'partners.p2.tag': 'Access Control, Ticketing &amp; Venue Technology',
+      'partners.p2.p': 'Imply builds the technology running behind the scenes of modern entertainment venues — access control, ticketing, self-service kiosks, and bowling lane systems engineered for reliability at scale. Their integrated platforms operate in more than 125 countries.',
+      'partners.visit': 'Visit site'
+    },
+    zh: {
+      'meta.title': '合作伙伴 | Gattillo Global',
+      'meta.desc': 'Gattillo Global 携手业内世界一流的领军者，共同提升访客体验。认识 BoldMove Nation 与 Imply。',
+      'nav.partners': '合作伙伴',
+      'nav.standard': '我们的标准',
+      'nav.approach': '我们的方法',
+      'nav.vision': '愿景',
+      'nav.ourPartners': '合作伙伴介绍',
+      'nav.about': '关于我们',
+      'nav.cta': '联系我们',
+      'partners.kicker': '合作伙伴',
+      'partners.h1': '我们携手业内世界一流的领军者<span class="dot">。</span>',
+      'partners.lead': '携手并进，共同提升访客体验——将世界一流的项目设计，与驱动现场运营的技术相结合。',
+      'partners.p1.tag': '项目设计与工程',
+      'partners.p1.p': 'BoldMove Nation 专注于打造让游客难以忘怀的游乐项目——黑暗骑乘、家庭过山车以及多媒体沉浸式体验，始终让技术服务于故事本身。他们的每一个项目，都致力于创造值得反复回味的"快乐世界"。',
+      'partners.p2.tag': '门禁、票务与场馆技术',
+      'partners.p2.p': 'Imply 为现代娱乐场馆提供幕后核心技术——门禁系统、票务、自助服务终端以及保龄球道系统，专为大规模稳定运行而打造。其软硬件一体化平台已在全球125多个国家和地区运行。',
+      'partners.visit': '访问官网'
+    },
+    fr: {
+      'meta.title': 'Nos partenaires | Gattillo Global',
+      'meta.desc': "Gattillo Global s'associe à des leaders mondiaux dans leur domaine pour élever l'expérience du visiteur. Découvrez BoldMove Nation et Imply.",
+      'nav.partners': 'Partenaires',
+      'nav.standard': 'Notre exigence',
+      'nav.approach': 'Notre méthode',
+      'nav.vision': 'Vision',
+      'nav.ourPartners': 'Nos partenaires',
+      'nav.about': 'Qui nous sommes',
+      'nav.cta': 'Contactez-nous',
+      'partners.kicker': 'Nos partenaires',
+      'partners.h1': 'Nous nous associons à des leaders mondiaux dans leur domaine<span class="dot">.</span>',
+      'partners.lead': "Ensemble, nous élevons l'expérience du visiteur — en associant une conception d'attractions de classe mondiale à la technologie qui fait tourner le site.",
+      'partners.p1.tag': "Conception et ingénierie d'attractions",
+      'partners.p1.p': "BoldMove Nation conçoit et fabrique les attractions dont les visiteurs se souviennent — dark rides, montagnes russes familiales et expériences immersives où la technologie sert toujours l'histoire. Chaque projet vise à créer ce qu'ils appellent un « monde heureux » où l'on a envie de revenir.",
+      'partners.p2.tag': 'Contrôle d’accès, billetterie et technologie de site',
+      'partners.p2.p': "Imply fournit la technologie qui fait fonctionner les sites de divertissement modernes — contrôle d'accès, billetterie, bornes libre-service et systèmes de pistes de bowling conçus pour une fiabilité à grande échelle. Leurs plateformes intégrées sont déployées dans plus de 125 pays.",
+      'partners.visit': 'Visiter le site'
+    }
+  };
+
+  var currentLang = 'en';
+  var langToggleBtns = document.querySelectorAll('.lang-toggle');
+  var metaDescEl = document.querySelector('meta[name="description"]');
+
+  function setLang(lang) {
+    if (!i18n[lang]) return;
+    currentLang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : (lang === 'fr' ? 'fr' : 'en');
+    var dict = i18n[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.title = dict['meta.title'];
+    if (metaDescEl) metaDescEl.setAttribute('content', dict['meta.desc']);
+    langToggleBtns.forEach(function (btn) {
+      btn.querySelectorAll('[data-lang-opt]').forEach(function (opt) {
+        opt.classList.toggle('active', opt.getAttribute('data-lang-opt') === lang);
+      });
+    });
+    try { localStorage.setItem('gg-lang', lang); } catch (e) {}
+  }
+
+  var langOrder = ['en', 'zh', 'fr'];
+  langToggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var next = langOrder[(langOrder.indexOf(currentLang) + 1) % langOrder.length];
+      setLang(next);
+    });
+  });
+
+  var savedLang = 'en';
+  try {
+    var stored = localStorage.getItem('gg-lang');
+    if (langOrder.indexOf(stored) !== -1) savedLang = stored;
+  } catch (e) {}
+  setLang(savedLang);
+})();
+</script>
+</body>
+</html>
