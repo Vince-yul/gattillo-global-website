@@ -112,12 +112,7 @@
     display: inline-flex; align-items: center; gap: 10px;
   }
   footer .wordmark b { color: var(--red); }
-  footer .gg-mark {
-    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
-    width: 24px; height: 24px; border-radius: 6px; background: var(--red);
-    font-family: var(--display); font-weight: 900; font-size: 10px; letter-spacing: -0.02em;
-    color: var(--stage);
-  }
+  footer .gg-mark { height: 20px; width: auto; display: block; flex-shrink: 0; }
   footer .copy { font-size: 12px; letter-spacing: 0.1em; color: var(--bone-meta); }
 
   @media (max-width: 640px) {
@@ -184,7 +179,7 @@
 
 <footer>
   <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; width:100%;">
-    <div class="wordmark"><span class="gg-mark" aria-hidden="true">GG</span>GATTILLO GLOBAL<b>.</b></div>
+    <div class="wordmark"><img class="gg-mark" src="assets/gg-icon-bone.png" alt="">GATTILLO GLOBAL<b>.</b></div>
     <div class="copy">CONCEPT REVIEW · NOT FOR PUBLIC DISTRIBUTION</div>
   </div>
 </footer>
