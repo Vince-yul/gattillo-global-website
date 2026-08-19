@@ -24,3 +24,4 @@ When working on this project:
 - Refer to V-Data for design components and themes
 - Keep git history up to date (`.git` folder present)
 - HTML files are presentation source (not static docs)
+- Logo/wordmark/tagline usage follows `docs/BRAND-GUIDELINES.md` — don't stack the full "GATTILLO GLOBAL / WE POWER ENTERTAINMENT." lockup on every page; see that file for where each brand element belongs
