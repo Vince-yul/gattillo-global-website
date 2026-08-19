@@ -418,7 +418,11 @@
   }
   footer .wordmark { font-size: 14px; }
   footer .f-brand { display: flex; flex-direction: column; gap: 6px; }
-  footer .f-tagline { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.02em; color: var(--bone-dim); }
+  footer .f-tagline {
+    font-family: var(--display); font-weight: 900; font-size: 12px; letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--red); display: inline-block;
+    padding-bottom: 3px; border-bottom: 2px solid var(--red);
+  }
   footer .fnav { display: flex; gap: 26px; font-size: 13.5px; color: var(--bone-meta); }
   footer .fnav a { transition: color 0.25s; }
   footer .fnav a:hover { color: var(--bone); }

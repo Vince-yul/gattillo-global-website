@@ -26,6 +26,10 @@ The GG symbol is the actual overlapping-G monogram from the master logo (`Busine
 
 Don't recreate the mark as CSS text/shape (e.g. a colored box with "GG" letters) — always reference these image assets so it stays the real logo geometry.
 
+## The tagline's typography
+
+The footer's "We power entertainment." is live text, not an image — but it must still read as the brand's tagline, not generic body copy. In the master logo it's set in red, bold, uppercase, underlined with a swoosh; the footer recreates that with CSS rather than an image, so it stays crisp and themeable: `color: var(--red)`, `font-weight: 900`, `text-transform: uppercase`, plus a `border-bottom` standing in for the swoosh underline. Don't let this fall back to plain dim body-copy styling (e.g. `--bone-dim`, sentence case, no underline) — that reads as a caption, not the brand promise.
+
 ## Deployment note — why the icon is duplicated in two folders
 
 **www.gattilloglobal.com (production) is a Vercel deployment whose project root is `concepts/premiere-red/`, not the repo root.** GitHub Pages (`vince-yul.github.io/gattillo-global-website/`) serves the whole repo, so a path like `../../assets/gg-icon-bone.png` from `concepts/premiere-red/index.html` works there — but on the production Vercel deployment that same file is served at the domain root, so `../../assets/...` 404s (nothing exists above the served root). Learned this the hard way: the icon looked fine on GitHub Pages and locally but was broken on the real production domain.
@@ -34,7 +38,7 @@ Fix: any asset used by `concepts/premiere-red/*.html` must live inside `concepts
 
 ## Current implementation
 
-- `concepts/premiere-red/index.html`, `contact.html`, `partners.html` — header/footer use `<img class="gg-mark" src="img/gg-icon-bone.png">` (path relative to `concepts/premiere-red/`) beside the `GATTILLO GLOBAL.` wordmark; footer pairs it with the `.f-tagline` "We power entertainment." line below; mobile menu (`index.html`) shows a small GG mark next to the "Entertainment & Amusement" footer line.
+- `concepts/premiere-red/index.html`, `contact.html`, `partners.html` — header/footer use `<img class="gg-mark" src="img/gg-icon-bone.png">` (path relative to `concepts/premiere-red/`) beside the `GATTILLO GLOBAL.` wordmark; footer pairs it with the `.f-tagline` "We power entertainment." line, styled red/bold/uppercase/underlined per the section above; mobile menu (`index.html`) shows a small GG mark next to the "Entertainment & Amusement" footer line.
 - Root `index.html` (concept-picker, GitHub Pages only) uses `<img class="gg-mark" src="assets/gg-icon-bone.png">`.
 - Favicon (data-URI SVG in `<head>`) is a single bold "G" glyph on the dark stage color — a separate, deliberately simplified mark (the overlapping-G icon is too fine-detailed to read at 16–32px); left as-is.
 - Homepage hero ("We power / entertainment.") already carries the tagline prominently and nowhere else does the full stacked lockup appear.
