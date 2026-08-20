@@ -202,12 +202,7 @@
   footer .fnav a:hover { color: var(--bone); }
   footer .copy { font-size: 12px; letter-spacing: 0.12em; color: var(--bone-meta); }
   footer .wordmark { font-size: 15px; }
-  footer .f-brand { display: flex; flex-direction: column; gap: 6px; }
-  footer .f-tagline {
-    font-family: var(--display); font-weight: 900; font-size: 12px; letter-spacing: 0.03em;
-    text-transform: uppercase; color: var(--red); display: inline-block;
-    padding-bottom: 3px; border-bottom: 2px solid var(--red);
-  }
+  footer .f-logo { display: block; height: clamp(38px, 4vw, 46px); width: auto; }
 
   .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(0.19,1,0.22,1), transform 0.9s cubic-bezier(0.19,1,0.22,1); }
   .rv.in { opacity: 1; transform: translateY(0); }
@@ -320,10 +315,7 @@
 </main>
 
 <footer>
-  <div class="f-brand">
-    <a href="index.html" class="wordmark"><img class="gg-mark" src="img/gg-icon-bone.png" alt="">GATTILLO GLOBAL<b>.</b></a>
-    <p class="f-tagline">We power entertainment.</p>
-  </div>
+  <a href="index.html"><img class="f-logo" src="img/gattillo-full-lockup-bone.png" alt="Gattillo Global — We power entertainment."></a>
   <nav class="fnav" aria-label="Footer">
     <a href="index.html#partners">Who We Work With</a>
     <a href="index.html#standard">The Standard</a>
