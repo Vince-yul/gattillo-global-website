@@ -63,24 +63,24 @@
   </div>
 
   <script>
-    document.getElementById('copy-btn').addEventListener('click', async function () {
+    document.getElementById('copy-btn').addEventListener('click', function () {
       var status = document.getElementById('copy-status');
-      var html = document.getElementById('sig-source').innerHTML;
-      var text = document.getElementById('sig-source').innerText;
+      var source = document.getElementById('sig-source');
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(source);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      var ok = false;
       try {
-        if (window.ClipboardItem) {
-          var item = new ClipboardItem({
-            'text/html': new Blob([html], { type: 'text/html' }),
-            'text/plain': new Blob([text], { type: 'text/plain' })
-          });
-          await navigator.clipboard.write([item]);
-        } else {
-          await navigator.clipboard.writeText(text);
-        }
-        status.textContent = 'Copied — now paste into your signature editor.';
+        ok = document.execCommand('copy');
       } catch (e) {
-        status.textContent = 'Copy failed — click inside the signature above, then Cmd+A, Cmd+C.';
+        ok = false;
       }
+      selection.removeAllRanges();
+      status.textContent = ok
+        ? 'Copied — now paste into your signature editor.'
+        : 'Copy failed — click inside the signature above, then Cmd+A, Cmd+C.';
     });
   </script>
 </body>
