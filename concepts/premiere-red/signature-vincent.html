@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gattillo Global — Email Signature (Vincent Brie)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background:#FFFFFF; margin:0; padding:40px 20px; }
+  .wrap { max-width:640px; margin:0 auto; }
+  h1 { font-size:18px; color:#0E0C0A; margin:0 0 4px 0; }
+  .sub { font-size:13px; color:#6B6258; margin:0 0 20px 0; }
+  .sig-box { background:#FFFFFF; }
+  .copy-btn { display:inline-block; margin:16px 0 24px 0; padding:10px 18px; background:#E8492F; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; border:0; border-radius:6px; cursor:pointer; }
+  .copy-btn:active { opacity:0.85; }
+  .copy-status { font-size:13px; color:#3A362F; margin-left:10px; }
+  .instructions { margin-top:20px; font-size:13px; line-height:1.6; color:#3A362F; }
+  .instructions h2 { font-size:14px; color:#0E0C0A; margin:0 0 8px 0; }
+  .instructions ol { padding-left:20px; margin:0; }
+  .instructions li { margin-bottom:6px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Email Signature &mdash; Vincent Brie</h1>
+    <p class="sub">Click &ldquo;Copy signature,&rdquo; then paste (Cmd+V) into your email client's signature editor.</p>
+
+    <div id="sig-source" class="sig-box">
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+      <tr>
+        <td style="padding:0 18px 0 0;vertical-align:middle;">
+          <img src="https://www.gattilloglobal.com/img/signature-logo.png" width="149" height="90" alt="Gattillo Global" style="display:block;border:0;">
+        </td>
+        <td style="padding:0 18px 0 0;vertical-align:middle;">
+          <div style="width:2px;height:74px;background-color:#E8492F;font-size:1px;line-height:1px;">&nbsp;</div>
+        </td>
+        <td style="vertical-align:middle;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="padding:0 0 3px 0;font-size:16px;line-height:19px;font-weight:bold;color:#0E0C0A;font-family:Arial,Helvetica,sans-serif;">Vincent Brie</td></tr>
+            <tr><td style="padding:0 0 9px 0;font-size:12px;line-height:14px;font-weight:bold;letter-spacing:0.06em;text-transform:uppercase;color:#E8492F;font-family:Arial,Helvetica,sans-serif;">COO &nbsp;&middot;&nbsp; Gattillo Global</td></tr>
+            <tr><td style="padding:0 0 2px 0;font-size:13px;line-height:18px;color:#3A362F;font-family:Arial,Helvetica,sans-serif;">Mobile &amp; WhatsApp:&nbsp; <a href="tel:+15149650202" style="color:#3A362F;text-decoration:none;">514-965-0202</a></td></tr>
+            <tr><td style="padding:0 0 2px 0;font-size:13px;line-height:18px;color:#3A362F;font-family:Arial,Helvetica,sans-serif;">Email:&nbsp; <a href="mailto:vincent@gattilloglobal.com" style="color:#3A362F;text-decoration:none;">vincent@gattilloglobal.com</a></td></tr>
+            <tr><td style="padding:0;font-size:13px;line-height:18px;color:#3A362F;font-family:Arial,Helvetica,sans-serif;">Web:&nbsp; <a href="https://gattilloglobal.com" style="color:#3A362F;text-decoration:none;">gattilloglobal.com</a></td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    </div>
+
+    <button type="button" class="copy-btn" id="copy-btn">Copy signature</button>
+    <span class="copy-status" id="copy-status"></span>
+
+    <div class="instructions">
+      <h2>How to install</h2>
+      <ol>
+        <li><strong>Gmail:</strong> Settings (gear icon) &rarr; See all settings &rarr; General &rarr; scroll to Signature &rarr; Create new &rarr; click inside the empty editor and paste (Cmd+V) &rarr; Save Changes.</li>
+        <li><strong>Apple Mail:</strong> Mail &rarr; Settings &rarr; Signatures &rarr; add a new signature, then paste into the signature box. If Mail strips formatting, uncheck &ldquo;Always match my default message font&rdquo;.</li>
+        <li><strong>Outlook:</strong> Settings &rarr; Mail &rarr; Compose and reply &rarr; paste into the signature box, or in desktop Outlook: File &rarr; Options &rarr; Mail &rarr; Signatures &rarr; New &rarr; paste.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('copy-btn').addEventListener('click', async function () {
+      var status = document.getElementById('copy-status');
+      var html = document.getElementById('sig-source').innerHTML;
+      var text = document.getElementById('sig-source').innerText;
+      try {
+        if (window.ClipboardItem) {
+          var item = new ClipboardItem({
+            'text/html': new Blob([html], { type: 'text/html' }),
+            'text/plain': new Blob([text], { type: 'text/plain' })
+          });
+          await navigator.clipboard.write([item]);
+        } else {
+          await navigator.clipboard.writeText(text);
+        }
+        status.textContent = 'Copied — now paste into your signature editor.';
+      } catch (e) {
+        status.textContent = 'Copy failed — click inside the signature above, then Cmd+A, Cmd+C.';
+      }
+    });
+  </script>
+</body>
+</html>
